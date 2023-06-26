@@ -9,7 +9,7 @@ int main()
 	printf("input 2 numbers: ");
 	scanf_s("%d %d", &num1, &num2);
 
-
+	// ㅋㅋ test1
 	// 함수 아닐 때
 	// 1. 3,5 일 때 ( 일단 5,3 제외하고 틀 만들어놓기 )
 	// 2. 이제 5,3 일 경우도 넣어야지 -> swap말고는 없나? 있나봄 ㄷㄷ
