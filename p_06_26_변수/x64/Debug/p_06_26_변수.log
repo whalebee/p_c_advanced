@@ -1,0 +1,11 @@
+﻿  main_변수.c
+D:\C++\p_c_advanced\p_06_26_변수\main_변수.c(47,5): error C2084: 'int main()' 함수에 이미 본문이 있습니다.
+D:\C++\p_c_advanced\p_06_26_변수\main_변수.c(7,5): message : 'main'의 이전 정의를 참조하십시오.
+D:\C++\p_c_advanced\p_06_26_변수\main_변수.c(69,16): error C2059: 구문 오류: '숫자의 접미사가 잘못되었습니다.'
+D:\C++\p_c_advanced\p_06_26_변수\main_변수.c(109,5): error C2084: 'int GCD(int,int)' 함수에 이미 본문이 있습니다.
+D:\C++\p_c_advanced\p_06_26_변수\main_변수.c(95,5): message : 'GCD'의 이전 정의를 참조하십시오.
+D:\C++\p_c_advanced\p_06_26_변수\main_변수.c(128,16): error C2059: 구문 오류: '숫자의 접미사가 잘못되었습니다.'
+D:\C++\p_c_advanced\p_06_26_변수\main_변수.c(128,24): error C2059: 구문 오류: '숫자의 접미사가 잘못되었습니다.'
+D:\C++\p_c_advanced\p_06_26_변수\main_변수.c(204,16): error C2059: 구문 오류: '숫자의 접미사가 잘못되었습니다.'
+D:\C++\p_c_advanced\p_06_26_변수\main_변수.c(277,16): error C2059: 구문 오류: '숫자의 접미사가 잘못되었습니다.'
+D:\C++\p_c_advanced\p_06_26_변수\main_변수.c(327,16): error C2059: 구문 오류: '숫자의 접미사가 잘못되었습니다.'
