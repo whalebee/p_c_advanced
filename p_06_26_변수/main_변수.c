@@ -218,8 +218,6 @@ void gugudan(int n1, int n2)
 // #include "header.h"
 #include <stdio.h>
 
-
-
 int main()
 {
 	/*
@@ -237,9 +235,6 @@ int main()
 	어떻게 구입할래요?
 	*/
 	// A Z 힌트
-
-
-
 
 	// 결정적 힌트가 A Z 라면 왜 이게 결정적인지부터 천천히 생각해보셈
 	// AZ가 printf에서 장난치는 문제였는데
