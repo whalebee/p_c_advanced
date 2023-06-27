@@ -24,5 +24,8 @@
     <ClCompile Include="..\p_06_26_변수\복사용2.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="임시저장용.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

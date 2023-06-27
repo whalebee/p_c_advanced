@@ -66,6 +66,87 @@ int fac(int value)
 
 
 
+
+
+#pragma region 1번과 2번
+#include <stdio.h>
+
+void gugudan(int n1, int n2);
+
+int main()
+{
+	// 16진수
+	/*
+	int num = 0;
+	printf("input: ");
+	scanf_s("%d", &num);
+	printf("16진수화: %x", num);
+	*/
+
+
+
+	// 2번
+	// 변수 4개로 해야함
+	int num1 = 0, num2 = 0, i, j;
+
+	printf("input 2 numbers: ");
+	scanf_s("%d %d", &num1, &num2);
+
+	// 함수 아닐 때
+	// 1. 3,5 일 때 ( 일단 5,3 제외하고 틀 만들어놓기 )
+	// 2. 이제 5,3 일 경우도 넣어야지 -> swap말고는 없나? 있나봄 ㄷㄷ
+	i = (num1 < num2 ? num1 : num2);
+	for (; i < 10; i++)
+	{
+		if (i >= num1 && i >= num2) break;
+
+		for (j = 1; j < 10; j++) printf("%d x %d = %d \n", i, j, i * j);
+
+		printf("\n");
+
+
+
+		// 함수 구현으로 했을 때 -> 함수 아니여도 됨
+		// int num1 = 0, num2 = 0;
+		// gugudan(num1, num2);
+
+
+		return 0;
+	}
+
+
+
+
+	void gugudan(int n1, int n2)
+	{
+		int temp, j = 0;
+
+		if (n1 > n2)
+		{
+			temp = n1;
+			n1 = n2;
+			n2 = temp;
+		}
+		for (; n1 < 10; n1++)
+		{
+			if (n1 > n2) break;
+			for (j = 1; j < 10; j++)
+				printf("%d x %d = %d \n", n1, j, n1 * j);
+			printf("\n");
+		}
+	}
+
+
+
+
+
+#pragma endregion
+
+
+
+
+
+
 #pragma region 3번 문제 못풀음 -> while로 푸셈
 #include <stdio.h>
 
@@ -105,10 +186,10 @@ int main()
 // while
 int GCD(int v1, int v2)
 {
-	// int i, gcd;
-	int result;
+	// int i, gcd; // 더러워 !
 	// 여기 밑에 4줄?	 일단 뽑아나보자
 	// result = v1 > v2 ? v1 : v2;
+	int result;
 	result = v1;
 	while (result)
 	{
@@ -116,6 +197,14 @@ int GCD(int v1, int v2)
 		result--;
 	}
 	return 0;
+
+	// 강사님 버전
+	//int result = v1 < v2 ? v1 : v2;
+	//while (v1 % result != 0 || v2 % result != 0)
+	//	result--;
+	//return result;
+
+
 }
 
 //int GCD(int n1, int n2)
@@ -129,82 +218,6 @@ int GCD(int v1, int v2)
 //	}
 //	return n1;
 //}
-
-
-
-
-#pragma endregion
-
-
-
-#pragma region 1번과 2번
-#include <stdio.h>
-
-void gugudan(int n1, int n2);
-
-int main()
-{
-	// 16진수
-	/*
-	int num = 0;
-	printf("input: ");
-	scanf_s("%d", &num);
-	printf("16진수화: %x", num);
-	*/
-
-
-
-	// 2번
-	// 변수 4개로 해야함
-	// int num1 = 0, num2 = 0, j, temp;
-	int num1 = 0, num2 = 0, i, j;
-
-	printf("input 2 numbers: ");
-	scanf_s("%d %d", &num1, &num2);
-
-
-	// 함수 아닐 때
-	// 1. 3,5 일 때 ( 일단 5,3 제외하고 틀 만들어놓기 )
-	// 2. 이제 5,3 일 경우도 넣어야지 -> swap말고는 없나? 있나봄 ㄷㄷ
-	// swap 없앴음
-	for (i = (num1 < num2 ? num1 : num2); i < num1 || i < num2; i++)
-	{
-		if (i > (num1 > num2 ? num1 : num2)) break;
-		for (j = 1; j < 10; j++) printf("%d x %d = %d \n", i, j, i * j);
-		printf("\n");
-	}
-
-
-	// 함수 구현으로 했을 때 -> 함수 아니여도 됨
-	// int num1 = 0, num2 = 0;
-	// gugudan(num1, num2);
-
-
-	return 0;
-}
-
-
-
-
-void gugudan(int n1, int n2)
-{
-	int temp, j = 0;
-
-	if (n1 > n2)
-	{
-		temp = n1;
-		n1 = n2;
-		n2 = temp;
-	}
-	for (; n1 < 10; n1++)
-	{
-		if (n1 > n2) break;
-		for (j = 1; j < 10; j++)
-			printf("%d x %d = %d \n", n1, j, n1 * j);
-		printf("\n");
-	}
-}
-
 
 
 
@@ -261,16 +274,12 @@ int main()
 	scanf_s("%d", &basic);
 	// 원 단위가 아니라 개수로 돌려라
 	for (x = 1; x <= basic / mac; x++)
-	{
 		for (y = 1; y <= basic / coke; y++)
-		{
 			for (z = 1; z <= basic / coou; z++)
 			{
 				if (basic == (x * mac) + (y * coke) + (z * coou))
 					printf("맥	콜 %d개,  코카콜라 %d개,  쿠	우 %d개 \n", x, y, z);
 			}
-		}
-	}
 
 
 	return 0;
@@ -301,9 +310,10 @@ int main()
 	scanf_s("%d", &num);
 
 	// 소수냐 아니냐만 반환을 해서 소수면 i를 출력하고 아니면 넘기고?
-	for (i = 1; i < num; i++)
+	// for (i = 2; i < num+1; i++) // 쌤은 이렇게 씀
+	for (i = 2; i < num; i++)
 	{
-		if (isPrime(i))
+		if (isPrime(i) == 1)
 		{
 			printf("%3d ", i);
 			cnt++;
@@ -318,13 +328,15 @@ int main()
 int isPrime(int num)
 {
 	int i;
-	if (num <= 1) return 0;
+	// if (num <= 1) return 0; 함수를 다른 곳에서 여러번 쓴다면 여기서 쓰는게 나을 듯
 	for (i = 2; i <= num; i++)
 		if (num % i == 0 && i != num) return 0;
 	// num을 i로 나눴을 때 나머지가 0이라는 건 나눌 수 있는 약수가 있다는 뜻
 	// 근데 이렇게만 해버리면 위에 반복문의 i값(매개변수)과 여기 i값이 같아질 때
 	// num % i == 0 이 조건에서 무조건 0이 나오니까  모두 return 0으로 나오는 거였음
 	return 1;
+
+	// if (num % i == 0) return 0; // 쌤은 이렇게 함
 }
 
 #pragma endregion
@@ -341,8 +353,6 @@ int isPrime(int num)
 
 void secondToHMS(int sec);
 
-
-
 int main()
 {
 	/*
@@ -350,6 +360,8 @@ int main()
 
 	ex) 초(second) 입력: 3615
 		[h:1, m:0, s:15]
+
+	keypoint: 몫과 나머지를 모두 이용한 풀이
 	*/
 	int sec;
 	printf("초(second) 입력: ");
@@ -361,11 +373,147 @@ int main()
 
 void secondToHMS(int sec)
 {
-	int h, m, s;
+	int h, m;
 	h = sec / H;
 	m = (sec % H) / M;
-	s = sec % M;
-	printf("[h:%d, m:%d, s:%d]", h, m, s);
+	sec = sec % M;
+	printf("[h:%d, m:%d, s:%d]", h, m, sec);
+}
+
+#pragma endregion
+
+
+
+
+#pragma region 7번 숫자n승 구해보기
+// start
+// #include "header.h"
+#include <stdio.h>
+
+
+
+int main()
+{
+	/*
+	숫자 n을 입력받고 다음 공식이 성립하는 k의 최대값을 계산해서 출력하는 프로그램 작성
+
+	2의 k승 <= n
+
+	실행 예 상수 256 입력했을 때
+	공식을 만족하는 k의 최대값은 8
+	*/
+
+	int num, i, cnt = 1;
+	printf("input: ");
+	scanf_s("%d", &num);
+
+	// for문으로 ( 나누기로 풀었으니까 )
+	// 변수 2개?? -> i를 이용해야할 듯 -> ㄴㄴ
+	for (i = 2; (num / i) != 1; )
+		num = num / i;
+	printf("k: %d", num);
+
+	//*  ( 곱하기로 풀어보기 )
+	/*for (i = 2; i < num; cnt++)
+		i = i*2;
+	printf("k: %d", cnt);*/
+
+
+	// 시작지점 생각들
+	// 256 % 2 == 0 까지
+	/*
+	i = 2;
+	while (num / i != 1)
+	{
+		num = num / i;
+		cnt++;
+	}
+	printf("%d ", cnt);
+	*/
+
+
+	return 0;
+}
+
+
+
+
+
+#pragma endregion
+
+
+
+
+#pragma region 8번 n승 구하기 ( 재귀함수 )
+// start
+// #include "header.h"
+#include <stdio.h>
+
+int squre_re(int num);
+
+int main()
+{
+	/*
+	 2의 n승을 구하는 함수!!!를 재귀적으로 구현.
+	 그에 따른 적절한 main 함수도 구현
+
+	 실행 예 정수 8입력하면 2의8승은 256
+
+	*/
+	int num;
+	printf("input: ");
+	scanf_s("%d", &num);
+
+	printf("2의 %d승은: %d \n", num, squre_re(num));
+
+	return 0;
+}
+
+int squre_re(int num)
+{
+	if (num == 0) return 1;
+	// 예를들어 8승이다
+	// 2 * 2 * 2 * 2 * 이런식으로 나와야함
+	return 2 * squre_re(num - 1);
+}
+
+
+
+
+#pragma endregion
+
+
+#pragma region 배열의 합계와 평균
+// start
+// #include "header.h"
+#include <stdio.h>
+
+
+int main()
+{
+	/*
+	정수형 값 3개를 입력받아서 배열에 저장
+	합계와 평균 출력 ( 평균은 소수점 1자리까지 )
+	*/
+
+	int arr[3] = { 0 };
+	int arrLen, i, sum = 0;
+
+	arrLen = sizeof(arr) / sizeof(int);
+
+	for (i = 0; i < arrLen; i++)
+	{
+		printf("input: ");
+		scanf_s("%d", &arr[i]);
+		sum += arr[i];
+	}
+	printf("sum: %d, avg: %.1f", sum, (double)sum / (double)arrLen);
+
+
+
+
+
+	return 0;
 }
 
 
@@ -374,8 +522,42 @@ void secondToHMS(int sec)
 
 
 
+#pragma region 배열의 최대값, 최소값 ( 정렬 ㄴㄴ )
+// start
+// #include "header.h"
+#include <stdio.h>
 
-#pragma region 
+int main()
+{
+	int arr[5] = { 0, };
+	int i, arrLen, max, min, sum = 0;
+	arrLen = sizeof(arr) / sizeof(int);
+
+	// 입력 for문
+	printf("input 5 numbes: ");
+	for (i = 0; i < arrLen; i++)
+		scanf_s("%d", &arr[i]);
+
+	// 처리 for문
+	max = arr[0];
+	min = arr[0];
+	for (i = 0; i < arrLen; i++)
+	{
+		// 삼항연산자는 if와 else 같이 써질 때 쓰는 것 !! ( 한 줄이면 무조건이 아니라 )
+		if (max < arr[i]) max = arr[i];
+		if (min > arr[i]) min = arr[i];
+		sum += arr[i];
+	}
+
+	// 출력
+	printf("Max: %d \n", max);
+	printf("Min: %d \n", min);
+	printf("Sum: %d \n", sum);
+
+
+	return 0;
+}
+
 
 
 
@@ -384,9 +566,7 @@ void secondToHMS(int sec)
 
 
 
-
-#pragma region 
-
+#pragma region
 
 
 

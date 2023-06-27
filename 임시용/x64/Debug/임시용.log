@@ -1,3 +1,9 @@
 ﻿  임시.c
-D:\C++\p_c_advanced\임시용\임시.c(37): warning C4715: 'GCD': 모든 제어 경로에서 값을 반환하지는 않습니다.
-  임시용.vcxproj -> D:\C++\p_c_advanced\x64\Debug\임시용.exe
+C:\Users\Administrator\source\repos\p_c_advanced\임시용\임시.c(86,11): error C2086: 'int i': 재정의
+C:\Users\Administrator\source\repos\p_c_advanced\임시용\임시.c(49,14): message : 'i' 선언을 참조하십시오.
+C:\Users\Administrator\source\repos\p_c_advanced\임시용\임시.c(111,6): error C2086: 'int num': 재정의
+C:\Users\Administrator\source\repos\p_c_advanced\임시용\임시.c(86,6): message : 'num' 선언을 참조하십시오.
+C:\Users\Administrator\source\repos\p_c_advanced\임시용\임시.c(111,11): error C2086: 'int i': 재정의
+C:\Users\Administrator\source\repos\p_c_advanced\임시용\임시.c(49,14): message : 'i' 선언을 참조하십시오.
+C:\Users\Administrator\source\repos\p_c_advanced\임시용\임시.c(111,14): error C2374: 'cnt': 재정의. 여러 번 초기화했습니다.
+C:\Users\Administrator\source\repos\p_c_advanced\임시용\임시.c(86,14): message : 'cnt' 선언을 참조하십시오.

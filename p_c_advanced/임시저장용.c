@@ -58,7 +58,7 @@ int main()
 	}
 
 
-	
+
 	// 3. GCD 함수로
 	/*int v1, v2;
 	printf("3. input: ");
@@ -68,13 +68,13 @@ int main()
 
 
 	//	4. 밀키스, 콜라, 레몬티 ( 함수 아님 )
-	int basic, mil=500, coke=700, remon=400;
+	int basic, mil = 500, coke = 700, remon = 400;
 	int x, y, z;
 	printf("4. input: ");
 	scanf_s("%d", &basic);
 
-	for(x = 1; x < basic/mil; x++)
-		for(y=1; y < basic/coke; y++)
+	for (x = 1; x < basic / mil; x++)
+		for (y = 1; y < basic / coke; y++)
 			for (z = 1; z < basic / remon; z++)
 			{
 				if (basic == (x * mil) + (y * coke) + (z * remon))
@@ -87,7 +87,7 @@ int main()
 	printf("5. input: ");
 	scanf_s("%d", &num);
 
-	for (i = 2; i < num+1; i++)
+	for (i = 2; i < num + 1; i++)
 	{
 		if (isPrime(i))
 		{
@@ -116,7 +116,7 @@ int main()
 	for (cnt = 0; num > 1; cnt++)
 		num /= 2;
 	printf("2의 k승 : %d \n", cnt);
-	
+
 	// 곱하기 변수 3개
 	// for문 시작에서 i = 2로 시작하면 1024 기준 11승이 나와버림
 	for (i = 1; i < num; cnt++)
@@ -124,9 +124,8 @@ int main()
 	printf("2의 k승 : %d \n", cnt);
 
 
-
 	//	8. 7번을 재귀함수로
-	/*int num; 
+	/*int num;
 	printf("8. input: ");
 	scanf_s("%d", &num);
 

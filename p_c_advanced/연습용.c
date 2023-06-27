@@ -1,27 +1,35 @@
+// start
+// #include "header.h"
 #include <stdio.h>
-
-
 
 int main()
 {
-	int num1 = 0, num2 = 0, i, j;
+	int arr[5] = { 0, };
+	int i, arrLen, max, min, sum;
+	arrLen = sizeof(arr) / sizeof(int);
 
-	printf("input 2 numbers: ");
-	scanf_s("%d %d", &num1, &num2);
+	// 입력 for문
+	printf("input 5 numbes: ");
+	for (i = 0; i < arrLen; i++)
+		scanf_s("%d", &arr[i]);
 
-	// 함수 아닐 때
-	// 1. 3,5 일 때 ( 일단 5,3 제외하고 틀 만들어놓기 )
-	// 2. 이제 5,3 일 경우도 넣어야지 -> swap말고는 없나? 있나봄 ㄷㄷ
-	// swap 없앴음
-	for (i = (num1 < num2 ? num1 : num2); i < num1+1 || i < num2+1; i++)
+	// 처리 for문
+	max = arr[0];
+	min = arr[0];
+	sum = 0; 
+	for (i = 0; i < arrLen; i++)
 	{
-		if (i > (num1 > num2 ? num1 : num2)) break;
-		for (j = 1; j < 10; j++) printf("%d x %d = %d \n", i, j, i * j);
-		printf("\n");
+		// 삼항연산자는 if와 else 같이 써질 때 쓰는 것 !! ( 한 줄이면 무조건이 아니라 )
+		if (max < arr[i]) max = arr[i];
+		if (min > arr[i]) min = arr[i];
+		sum += arr[i];
 	}
+
+	// 출력
+	printf("Max: %d \n", max);
+	printf("Min: %d \n", min);
+	printf("Sum: %d \n", sum);
 
 
 	return 0;
 }
-
-
