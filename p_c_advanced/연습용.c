@@ -4,6 +4,7 @@
 
 int main()
 {
+	// 아직 못한
 	int arr[5] = { 0, };
 	int i, arrLen, max, min, sum;
 	arrLen = sizeof(arr) / sizeof(int);
