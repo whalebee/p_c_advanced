@@ -19,8 +19,8 @@ int main()
 	for (i = 0; i < arrLen; i++)
 	{
 		printf("input: ");
-		scanf_s("%d", &arr[i]);
-		sum += arr[i];
+		scanf_s("%d", &arr[i]); // 입력
+		sum += arr[i]; // 처리
 	}
 	printf("sum: %d, avg: %.1f", sum, (double)sum / (double)arrLen);
 
@@ -81,7 +81,43 @@ int main()
 
 
 
-#pragma region
+#pragma region 배열의 최대값 최소값 sum과 min max 합친거
+// start
+// #include "header.h"
+#include <stdio.h>
+
+int main()
+{
+	// 하긴 했는디..
+	int arr[5] = { 0, };
+	int i, arrLen, max, min, sum;
+
+	arrLen = sizeof(arr) / sizeof(int);
+	printf("input 5 numbes: ");
+	scanf_s("%d", &arr[0]);
+	sum = min = max = arr[0];
+
+	// 입력 for문
+	for (i = 0; i < arrLen - 1; i++)
+		scanf_s("%d", &arr[i]);
+
+	// 처리 for문
+	for (i = 0; i < arrLen - 1; i++)
+	{
+		// 삼항연산자는 if와 else 같이 써질 때 쓰는 것 !! ( 한 줄이면 무조건이 아니라 )
+		if (max < arr[i]) max = arr[i];
+		if (min > arr[i]) min = arr[i];
+		sum += arr[i];
+	}
+
+	// 출력
+	printf("Max: %d \n", max);
+	printf("Min: %d \n", min);
+	printf("Sum: %d \n", sum);
+
+
+	return 0;
+}
 
 
 
