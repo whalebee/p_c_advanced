@@ -24,15 +24,8 @@ int main()
 	}
 	printf("sum: %d, avg: %.1f", sum, (double)sum / (double)arrLen);
 
-
-
-
-
 	return 0;
 }
-
-
-
 #pragma endregion
 
 
@@ -69,13 +62,8 @@ int main()
 	printf("Min: %d \n", min);
 	printf("Sum: %d \n", sum);
 
-
 	return 0;
 }
-
-
-
-
 
 #pragma endregion
 
@@ -115,12 +103,8 @@ int main()
 	printf("Min: %d \n", min);
 	printf("Sum: %d \n", sum);
 
-
 	return 0;
 }
-
-
-
 #pragma endregion
 
 
@@ -146,7 +130,6 @@ int main()
 	// Ãâ·Â
 	for (i = 0; i < arrLen; i++)
 		printf("%c", arr[i]);
-
 
 	return 0;
 }
