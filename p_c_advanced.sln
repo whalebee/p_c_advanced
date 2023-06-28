@@ -7,9 +7,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "A", "p_c_advanced\p_c_advan
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_06_26_변수", "p_06_26_변수\p_06_26_변수.vcxproj", "{011E454A-505E-45ED-835B-3A778F5935F5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "임시용", "임시용\임시용.vcxproj", "{2AE7D2F1-EAC9-4923-B61A-3B8037154BBC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "A_임시용", "임시용\임시용.vcxproj", "{2AE7D2F1-EAC9-4923-B61A-3B8037154BBC}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_06_27_배열", "p_06_27_배열\p_06_27_배열.vcxproj", "{0DCDF30C-7D76-4E45-80D0-651052909958}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_06_28_포인터", "p_06_28_포인터\p_06_28_포인터.vcxproj", "{671705E2-13D3-41EB-88EF-B3E712A618B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,14 @@ Global
 		{0DCDF30C-7D76-4E45-80D0-651052909958}.Release|x64.Build.0 = Release|x64
 		{0DCDF30C-7D76-4E45-80D0-651052909958}.Release|x86.ActiveCfg = Release|Win32
 		{0DCDF30C-7D76-4E45-80D0-651052909958}.Release|x86.Build.0 = Release|Win32
+		{671705E2-13D3-41EB-88EF-B3E712A618B3}.Debug|x64.ActiveCfg = Debug|x64
+		{671705E2-13D3-41EB-88EF-B3E712A618B3}.Debug|x64.Build.0 = Debug|x64
+		{671705E2-13D3-41EB-88EF-B3E712A618B3}.Debug|x86.ActiveCfg = Debug|Win32
+		{671705E2-13D3-41EB-88EF-B3E712A618B3}.Debug|x86.Build.0 = Debug|Win32
+		{671705E2-13D3-41EB-88EF-B3E712A618B3}.Release|x64.ActiveCfg = Release|x64
+		{671705E2-13D3-41EB-88EF-B3E712A618B3}.Release|x64.Build.0 = Release|x64
+		{671705E2-13D3-41EB-88EF-B3E712A618B3}.Release|x86.ActiveCfg = Release|Win32
+		{671705E2-13D3-41EB-88EF-B3E712A618B3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
