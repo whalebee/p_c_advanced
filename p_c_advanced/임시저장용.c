@@ -1,174 +1,69 @@
+// start
+// #include "header.h"
 #include <stdio.h>
 
-#define H (60*60)
-#define M 60
-
-int gcd(int v1, int v2);
-int isPrime(int n);
-void secondToHMS(int sec);
-int square_re(int num);
+void line_up(double* max, double* mid, double* min);
+void swap(double* n1, double* n2);
 
 int main()
 {
-	//	1. 16진수
-	//	2. 3 5 입력하면 3단 ~5단까지 출력 !, 곱하기는 9까지 다 출력
-	//	3. GCD 함수로
-	//	4. 밀키스, 콜라, 레몬티
-	//	5. 양수를 입력하면 1부터 입력한 양수까지의 소수를 출력
-	//	6. 초 입력하면 h m s 입력
-	//	7. 입력한 수의 2의 k승수(보다 작거나 같게)
-	//	8. 7번을 재귀함수로
+	/*
+	main함수에서 실수 값을 세 개 입력 받아서 line_up함수를 호출 하고 난 뒤,
+	정렬된 값을 출력 ( 최대값, 중간값, 최소값)
 
+	line_up 함수에서는 swap함수를 호출해서 세 변수의 값을 크기 별로 정렬하도록 구현
 
+	swap 함수는 두 실수를 바꾸는 함수로 구현
 
-	//	1. 16진수 -ch
-	/*int num;
-	printf("input: ");
-	scanf_s("%d", &num);
-
-	printf("%x", &num);
-	// o는 8진수, x는 16진수
+	출력은 메인에서
+	예)
+	실수값 세 개 입력 : 4.7 11.2 -8.1
+	정렬된 값 출력 : 11.2 4.7 -8.1
+	*/
+	/*
+	메인 5
+	라인 3
+	스왑3
 	*/
 
+	// 선언
+	double max = 0, mid = 0, min = 0;
 
-	// 2. 3 5 입력하면 3단 ~ 5단까지 출력 ! , 곱하기는 9까지 다 출력
-	/*int v1, v2, i, j;
-	printf("2. input: ");
-	scanf_s("%d %d", &v1, &v2);
+	// 입력
+	printf("실수 값 세 개 입력 : ");
+	scanf_s("%lf %lf %lf", &max, &mid, &min);
 
-	i = v1 < v2 ? v1 : v2;
-	for (; i < 10; i++)
-	{
-		if (i > v1 && i > v2) break;
-		for (j = 1; j < 10; j++)
-		{
-			printf("%d x %d = %d \n", i, j, i * j);
-		}
-		puts("");
-	}*/
-	int v1, v2, i, j;
-	scanf_s("%d %d", &v1, &v2);
-	i = v1 < v2 ? v1 : v2;
-	for (; i < 10; i++) // 구구단이니까 조건 !!
-	{
-		if (i > v1 && i > v2) break; // 조건을 잘 생각해야지. 언제!! break 해야돼?
-		for (j = 1; j < 10; j++)
-			printf("%d x %d = %d \n", i, j, i * j);
-		printf("\n");
-	}
+	// line_up 정렬된 값을 출력하는 함수
+	line_up(&max, &mid, &min);
 
-
-
-	// 3. GCD 함수로
-	/*int v1, v2;
-	printf("3. input: ");
-	scanf_s("%d %d", &v1, &v2);
-
-	printf("gcd: %d\n", gcd(v1, v2));*/
-
-
-	//	4. 밀키스, 콜라, 레몬티 ( 함수 아님 )
-	int basic, mil = 500, coke = 700, remon = 400;
-	int x, y, z;
-	printf("4. input: ");
-	scanf_s("%d", &basic);
-
-	for (x = 1; x < basic / mil; x++)
-		for (y = 1; y < basic / coke; y++)
-			for (z = 1; z < basic / remon; z++)
-			{
-				if (basic == (x * mil) + (y * coke) + (z * remon))
-					printf("밀키스 %d, 콜라 %d, 레몬에이드 %d \n", x, y, z);
-			}
-
-
-	//	5. 양수를 입력하면 1부터 입력한 양수까지의 소수를 출력 (함수)
-	int num, i, cnt = 0;
-	printf("5. input: ");
-	scanf_s("%d", &num);
-
-	for (i = 2; i < num + 1; i++)
-	{
-		if (isPrime(i))
-		{
-			printf("%5d ", i);
-			cnt++;
-		}
-		else continue;
-		if (cnt % 5 == 0) printf("\n");
-	}
-
-
-	//	6. 초 입력하면 h m s 입력
-	int sec;
-	printf("6. input: ");
-	scanf_s("%d", &sec);
-
-	secondToHMS(sec);
-
-
-	//	7. 입력한 수의 2의 k승수(보다 작거나 같게) ( 곱하기 와 나누기 둘 다 한 번 씩 )
-	int num, i, cnt = 0;
-	printf("7. input: ");
-	scanf_s("%d", &num);
-
-	// 나누기 변수 2개
-	for (cnt = 0; num > 1; cnt++)
-		num /= 2;
-	printf("2의 k승 : %d \n", cnt);
-
-	// 곱하기 변수 3개
-	// for문 시작에서 i = 2로 시작하면 1024 기준 11승이 나와버림
-	for (i = 1; i < num; cnt++)
-		i *= 2;
-	printf("2의 k승 : %d \n", cnt);
-
-
-	//	8. 7번을 재귀함수로
-	/*int num;
-	printf("8. input: ");
-	scanf_s("%d", &num);
-
-	printf("%d", square_re(num));*/
-
+	// 확인
+	printf("정렬된 값 출력 : %.1lf %.1lf %.1lf", max, mid, min);
 	return 0;
 }
 
-// 3번
-int gcd(int v1, int v2)
+// 주소값을 매개변수로 받음
+// 총 3줄, 판단은 line_up에서
+// swap 함수 호출 ( 매개변수를 2개씩 넣어야한다면 비교를 좀 해야할 듯 )
+// printf("값이 바뀌었나 ? %lf %lf %lf", *max, *mid, *min);
+void line_up(double* max, double* mid, double* min)
 {
-	int result;
-	// 조건과 while문이라는 것 !
-	result = v1 < v2 ? v1 : v2; // result에 삼항 연산자
-	while (v1 % result != 0 || v2 % result != 0) // or조건과 != 라는 것 !
-		result--;
-	return result;
+	/*if (*max < *mid)		swap(max, mid);
+	if (*mid < *min)		swap(mid, min);
+	if (*max < *mid)		swap(max, mid);*/
+
+	// 정답
+	if (*max < *mid)	swap(max, mid);
+	if (*max < *min)	swap(max, min);
+	if (*mid < *min)	swap(mid, min);
 }
 
-// 5번
-int isPrime(int n)
+void swap(double* n1, double* n2)
 {
-	int i;
-	for (i = 2; i < n; i++)
-		if (n % i == 0) return 0;
-	return 1;
+	double temp = *n1;
+	*n1 = *n2;
+	*n2 = temp;
 }
-
-
-// 6번
-void secondToHMS(int sec)
-{
-	int h, m, s;
-	h = sec / H;
-	m = (sec % H) / M;
-	s = sec % M;
-
-	printf("h: %d, m: %d, s: %d \n", h, m, s);
-}
-
-
-int square_re(int num)
-{
-	if (num == 0) return 1;
-	return 2 * square_re(num - 1);
-}
+// 두 실수를 바꾸는 함수로 구현 -> 매개변수가 2개
+// 총 3줄
+//  주소값을 받아옴
+// 주소값이 들어왔고 두 실수 자리 변경 -> 비교하지말고 바로 바꿔

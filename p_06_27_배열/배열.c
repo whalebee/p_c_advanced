@@ -342,8 +342,44 @@ int main()
 
 
 
-#pragma region
+#pragma region 포인터 연습문제 2번 ( swap ) ( 1번은 그림이였음 )
+// start
+// #include "header.h"
+#include <stdio.h>
 
+
+
+int main()
+{
+	/* 연습문제 2번
+	1. int형 변수 num1과 num2를 선언과 동시에 각각 10과 20으로 초기화
+	2. int형 포인터 변수 ptr1과 ptr2를 선언하여 각각 num1과 num2를 가리키게하자
+	3. ptr1과 ptr2를 이용해서 num1의 값을 10 증가 시키고 num2의 값을 10 감소시키자
+	4. 두 포인터 변수 ptr1과 ptr2가 가리키는 대상을 서로 바꾸자 (조건. &num1 &num2 금지 )
+	5. 마지막으로 pt1과 pt2가 가리키는 변수에 저장된 값을 출력하자.
+	*/
+
+	// 1 ~ 2
+	int num1 = 10, num2 = 20;
+	int* ptr1 = &num1;
+	int* ptr2 = &num2;
+	int* temp;
+
+	// 3
+	*ptr1 += 10; // num1 == 20
+	*ptr2 -= 10; // num2 == 10
+
+	// 4
+	temp = ptr1;
+	ptr1 = ptr2;
+	ptr2 = temp;
+
+	// 5
+	printf("ptr1: %d \nptr2: %d ", *ptr1, *ptr2);
+
+
+	return 0;
+}
 
 
 #pragma endregion
@@ -352,8 +388,38 @@ int main()
 
 
 
-#pragma region
+#pragma region 추가예제 포인터 함수 연습문제 1번
+// start
+// #include "header.h"
+#include <stdio.h>
+	// 둘 다 같은 말 !
+	//int* ptr = NULL;
+	//int* ptr2 = 0;
 
+void setValue10(int* n1, int* n2, int* n3);
+
+int main()
+{
+	// 연습 문제 1번
+	/*
+	main()함수에서 정의한 3개의 int 형 변수의 값을 모두 10으로 변경하는
+	setValue10()함수를 작성하시고,
+	num1, 2, 3은 10, 20, 30으로 선동초하면서 시작
+	*/
+
+	int num1 = 10, num2 = 20, num3 = 30;
+
+	printf("before : %3d, %3d, %3d \n", num1, num2, num3);
+	setValue10(&num1, &num2, &num3);
+	printf("after  : %3d, %3d, %3d \n", num1, num2, num3);
+
+	return 0;
+}
+
+void setValue10(int* n1, int* n2, int* n3)
+{
+	*n1 = *n2 = *n3 = 10;
+}
 
 
 #pragma endregion
@@ -362,8 +428,47 @@ int main()
 
 
 
-#pragma region
+#pragma region 포인터 추가 예제 2번
+// start
+// #include "header.h"
+#include <stdio.h>
 
+void enterValue(int* mod, int* rem);
+
+int main()
+{
+	/*
+	4로 나누었을 때 몫과 나머지를 구하는 함수를 구현하려 합니다.
+	main함수에서는 적절한 함수 호출 후 결과 값을 출력합니다.
+	몫과 나머지를 담당하는 변수는 main에서 선언합니다. (mod, rem)
+	최종 몫과 나머지 출력도 main에서 합니다.
+	양수 입력을 추가 함수에서 받으세요 !
+
+	조건
+	메인 3줄
+	함수 5줄
+
+	예)
+	양수 입력 : 14
+	몫 : 3, 나머지 :2
+	*/
+
+	int mod = 0, rem = 0;
+
+	enterValue(&mod, &rem);
+	printf("몫 : %d, 나머지 : %d \n", mod, rem);
+
+	return 0;
+}
+
+void enterValue(int* mod, int* rem)
+{
+	int num;
+	printf("양수 입력 : ");
+	scanf_s("%d", &num);
+	*mod = num / 4;
+	*rem = num % 4;
+}
 
 
 #pragma endregion
