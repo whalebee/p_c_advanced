@@ -119,7 +119,7 @@ int main()
 	printf("뒤집힌 영단어: %s \n", arr);
 
 	// idx가 변하는 방법
-	/*for (i = 0; i < idx; i++, idx--)
+	/*for (i = 0; i < idx/2; i++, idx--)
 	{
 		temp = arr[i];
 		arr[i] = arr[idx - 1];

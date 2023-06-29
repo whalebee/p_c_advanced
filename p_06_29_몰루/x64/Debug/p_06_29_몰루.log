@@ -1,0 +1,6 @@
+﻿  배열포인터.c
+C:\Users\Administrator\source\repos\p_c_advanced\p_06_29_몰루\배열포인터.c(30,46): error C2059: 구문 오류: '숫자의 접미사가 잘못되었습니다.'
+C:\Users\Administrator\source\repos\p_c_advanced\p_06_29_몰루\배열포인터.c(37,5): error C2084: 'int main()' 함수에 이미 본문이 있습니다.
+C:\Users\Administrator\source\repos\p_c_advanced\p_06_29_몰루\배열포인터.c(9,5): message : 'main'의 이전 정의를 참조하십시오.
+C:\Users\Administrator\source\repos\p_c_advanced\p_06_29_몰루\배열포인터.c(84,46): error C2059: 구문 오류: '숫자의 접미사가 잘못되었습니다.'
+C:\Users\Administrator\source\repos\p_c_advanced\p_06_29_몰루\배열포인터.c(129,46): error C2059: 구문 오류: '숫자의 접미사가 잘못되었습니다.'

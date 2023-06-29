@@ -13,7 +13,7 @@ int main()
 
 	simpleFunc 함수
 	- num1. 0으로 선동초(??) ( 단, num1은 static 변수 )
-	- num2. 0으로 선동초(???)
+	- num2. 0으로 선동초(???) ( 선언과 동시에 초기화 ㅋㅋ )
 	- num1, num2 1씩 증가
 	- num1, num2 출력
 	*/
