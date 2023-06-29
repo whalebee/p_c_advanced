@@ -94,7 +94,7 @@ int main()
 	*/
 
 	char arr[50];
-	int i, temp, cnt = 4, idx = 0;
+	int i, temp, idx = 0;
 
 	printf("input: ");
 	scanf_s("%s", arr, (unsigned int)sizeof(arr));
@@ -105,14 +105,16 @@ int main()
 	/*printf("뒤집힌 영단어: ");
 	for (i = idx-1; i >= 0; i--)
 		printf("%c", arr[i]);*/
-		// 출력때만이 아니라 저장까지 바꿔야함
+	// 출력때만이 아니라 저장까지 바꿔야함
 
-	for (i = 0; i < idx; i++, cnt--)
+	// 조건  i < idx/2 이렇게하고 if문 없애도 됨
+	// 아니면 arr[--idx]로 해도 됨
+	for (i = 0; i < idx; i++)
 	{
 		temp = arr[i];
-		arr[i] = arr[cnt];
-		arr[cnt] = temp;
-		if (arr[i] == arr[cnt]) break;
+		arr[i] = arr[idx - 1 - i];
+		arr[idx - 1 - i] = temp;
+		if (arr[i] == arr[idx - 1 - i]) break;
 	}
 	printf("뒤집힌 영단어: %s \n", arr);
 
@@ -154,7 +156,8 @@ int main()
 	*/
 
 	char arr[50];
-	int i, max, idx = 0;
+	int i, idx = 0;
+	char max; // int max;  아니다 !!
 
 	// 입력
 	printf("input: ");
@@ -257,9 +260,9 @@ int main()
 	*ptr2 -= 10; // num2 == 10
 
 	// 4
-	temp = ptr1;
-	ptr1 = ptr2;
-	ptr2 = temp;
+	temp = *ptr1;
+	*ptr1 = *ptr2;
+	*ptr2 = temp;
 
 	// 5
 	printf("ptr1: %d \nptr2: %d ", *ptr1, *ptr2);
@@ -425,7 +428,7 @@ void line_up(double* max, double* mid, double* min)
 	// 정답
 	if (*max < *mid)	swap(max, mid);
 	if (*max < *min)	swap(max, min);
-	if (*mid < *min)		swap(mid, min);
+	if (*mid < *min)	swap(mid, min);
 }
 
 void swap(double* n1, double* n2)
