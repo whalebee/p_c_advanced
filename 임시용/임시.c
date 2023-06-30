@@ -60,8 +60,8 @@ dup == 1이면 중복이다 라는 뜻을 사용하라고 하신 것
 void input_nums_dup(int* arr, int len)
 {
 	int i, j, dup = 0;
-
-	for (i = 0, dup = 0; i < len; i++)
+	// dup = 0이 for 문 안에 있을 필요는 없음
+	for (i = 0; i < len; i++)
 	{
 		printf("번호 입력 : ");
 		if (dup == 0) scanf_s("%d", &arr[i]);

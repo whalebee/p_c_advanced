@@ -331,12 +331,13 @@ int check_same(int* lottoArr, int* myArr, int len)
 
 
 #pragma region 연습문제 2번
-// start
+// start -> flag 해보는 중
 // #include "header.h"
 #include <stdio.h>
 
 void input_nums(int* arr, int len);
 void print_nums(int* arr, int len);
+void input_nums_dup(int* arr, int len);
 
 int main()
 {
@@ -360,7 +361,7 @@ int main()
 	int arr[6];
 	int len;
 	len = sizeof(arr) / sizeof(int);
-	input_nums(arr, len);
+	input_nums_dup(arr, len);
 	print_nums(arr, len);
 
 	return 0;
@@ -385,20 +386,32 @@ void input_nums(int* arr, int len)
 	}
 }
 
-// duplicate 의미를 생각하며 dup 변수 선언하고 이용
-// 복제? 누구를? -> dup == 1이면 중복이다 라는 뜻을 사용하라고 하신 것 같음
-//void input_nums(int* arr, int len)
-//{
-//	int i, j, dup;
-//
-//	for (i = 0, j = i; i < len; i++)
-//	{
-//		printf("번호 입력 : ");
-//		scanf_s("%d", &arr[i]);
-//
-//
-//	}
-//}
+/*
+duplicate 의미를 생각하며 dup 변수 선언하고 이용
+dup == 1이면 중복이다 라는 뜻을 사용하라고 하신 것
+*/
+void input_nums_dup(int* arr, int len)
+{
+	int i, j, dup = 0;
+	// dup = 0이 for 문 안에 있을 필요는 없음
+	for (i = 0; i < len; i++)
+	{
+		printf("번호 입력 : ");
+		if (dup == 0) scanf_s("%d", &arr[i]);
+		for (j = 0; j < i; j++)
+			if (arr[i] == arr[j]) dup = 1;
+	}
+}
+
+void print_nums(int* arr, int len)
+{
+	int i;
+	printf("로또 번호 : ");
+	for (i = 0; i < len; i++)
+		printf("%d ", arr[i]);
+}
+
+
 
 // 첫번째 -> 답은 맞지만 if가 너무 많고 break;도 너무 많음
 //void input_nums(int* arr, int len)
@@ -432,13 +445,7 @@ void input_nums(int* arr, int len)
 //}
 
 
-void print_nums(int* arr, int len)
-{
-	int i;
-	printf("로또 번호 : ");
-	for (i = 0; i < len; i++)
-		printf("%d ", arr[i]);
-}
+
 
 
 #pragma endregion
@@ -505,12 +512,47 @@ void getEvenNum(int* arr, int len)
 	printf("\n");
 }
 
-
-
 #pragma endregion
 
 
-#pragma region 연습문제
+#pragma region 연습문제 10진수 -> 2진수로 바꾸기
+// start
+// #include "header.h"
+#include <stdio.h>
+
+
+
+int main()
+{
+	/*
+	10진수 형태로 정수를 하나 입력 받은 다음,
+	이를 2진수로 변환해서 출력하는 프로그램 작성
+
+	조건: main함수에서 작성
+	if (num % 2 == 1) arr[0] = 1; -> 이런거 금지
+	*/
+
+	// 선언
+	int arr[100];
+	int i, num;
+	printf("10진수 정수 입력 : ");
+	scanf_s("%d", &num);
+
+	// 처리
+	for (i = 0; num > 0; i++)
+	{
+		arr[i] = num % 2;
+		num /= 2;
+	}
+
+	// 출력
+	for (i--; i >= 0; i--)
+		printf("%d", arr[i]);
+
+	return 0;
+}
+
+}
 
 
 

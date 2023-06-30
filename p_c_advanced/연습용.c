@@ -7,25 +7,43 @@
 int main()
 {
 	/*
-	10진수 형태로 정수를 하나 입력 받은 다음,
-	이를 2진수로 변환해서 출력하는 프로그램 작성
-	조건: main함수에서 작성
+	회문은 앞으로 읽으나 뒤로 읽으나 차이가 없는 단어를 말한다.
+	level이나 bob같은 단어
+	회문인지 아닌 지를 판단하려고 한다.
+	회문(Palindrome)함수를 정의해보시오.
+	단, 구현의 편의를 위해서 대소문자까지 모두 일치해야만 회문으로 인정
 	*/
 
-	int arr[100];
-	int i, num, len;
-	printf("10진수 정수 입력 : ");
-	scanf_s("%d", &num);
-	len = sizeof(arr) / sizeof(int);
+	char string[100];
 
-	// 처리
-	if (num % 2 == 1) arr[0] = 1;
-	for (i = 1; num > 0 ; num/=2, i++)
-		arr[i] = num % 2;
+	printf("문자열 입력 : ");
+	scanf_s("%s", &string, (unsigned char)sizeof(string));
 
-	// 출력
-	for (i-- ; i > 0 ; i--)
-		printf("%d", arr[i]);
+	// printf("%s", arr);
+	
+	// 4줄, 결과 main에서
+	if (isPalindrome(string) == 1)	printf("회문입니다. \n");
+	else							printf("회문이 아니네요 \n");
 
+	return 0;
+}
+
+// 길이 반환 함수
+int stringLen(char* pArr)
+{
+	int i, cnt = 0;
+	for (i = 0; pArr[i] != '\0'; i++)
+		cnt++;
+	return cnt;
+}
+
+int isPalindrome(int* pStr)
+{
+	// 일반 변수 2개, 포인터 변수 1개로 충분하다고 하심
+	int i, j = stringLen(pStr);
+	for (i = 0; i < j; i++, j--)
+	{
+		if (pStr[i] == pStr[j-1]) return 1;
+	}
 	return 0;
 }
