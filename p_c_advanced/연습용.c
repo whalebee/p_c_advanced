@@ -41,9 +41,9 @@ int isPalindrome(int* pStr)
 {
 	// 일반 변수 2개, 포인터 변수 1개로 충분하다고 하심
 	int i, j = stringLen(pStr);
-	for (i = 0; i < j; i++, j--)
+	for (i = 0; i < j; i++)
 	{
-		if (pStr[i] == pStr[j-1]) return 1;
+		if (pStr[i] == pStr[j--]) return 1;
 	}
 	return 0;
 }
