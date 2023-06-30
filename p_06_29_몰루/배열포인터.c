@@ -152,7 +152,7 @@ int main()
 	// 처리
 	for (i = 0; i < len; i++)
 		sum += *(ptr--);
-
+	
 	// 확인
 	printf("sum: %d \n", sum);
 	printf("%d", *ptr);

@@ -1,46 +1,31 @@
+// start
+// #include "header.h"
 #include <stdio.h>
+
+
 
 int main()
 {
-	int arr[6] = { 1,2,3,4,5,6 };
-	int i, len, temp;
-	int* frontPtr = arr;
-	int* backPtr = arr;
+	/*
+	10진수 형태로 정수를 하나 입력 받은 다음,
+	이를 2진수로 변환해서 출력하는 프로그램 작성
+	조건: main함수에서 작성
+	*/
+
+	int arr[100];
+	int i, num, len;
+	printf("10진수 정수 입력 : ");
+	scanf_s("%d", &num);
 	len = sizeof(arr) / sizeof(int);
 
 	// 처리
-	for (i = 0; i < len / 2; i++)
-	{
-		temp = frontPtr[i];
-		frontPtr[i] = backPtr[len - 1 - i];
-		backPtr[len - 1 - i] = temp;
-	}
+	if (num % 2 == 1) arr[0] = 1;
+	for (i = 1; num > 0 ; num/=2, i++)
+		arr[i] = num % 2;
 
-	// 조건식에 len / 2를 쓸 수 없을 때
-	
-	// 1. len을 나누는게 아니라 i를 빼서 구해보기
-	// int* backPtr2 = &arr[len - 1];
-	/*for (i = 0; i < (len - i); i++)
-	{
-		temp = frontPtr[i];
-		frontPtr[i] = backPtr2[-i];
-		backPtr2[-i] = temp;
-	}*/
-
-	// 확인
-	for (i = 0; i < len; i++)
-		printf("%d ", arr[i]);
-		
-	// 2. len 자체를 빼기..
-	/*for (i = 0; i < len; i++, len--)
-	{
-		temp = frontPtr[i];
-		frontPtr[i] = backPtr[len - 1];
-		backPtr[len - 1] = temp;
-	}*/
-	// 2번 출력용
-	/*for (i = 0; i < len * 2; i++)
-		printf("%d ", arr[i]);*/
+	// 출력
+	for (i-- ; i > 0 ; i--)
+		printf("%d", arr[i]);
 
 	return 0;
 }

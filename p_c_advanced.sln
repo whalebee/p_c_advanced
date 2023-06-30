@@ -13,7 +13,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_06_27_배열", "p_06_27_�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_06_28_포인터", "p_06_28_포인터\p_06_28_포인터.vcxproj", "{671705E2-13D3-41EB-88EF-B3E712A618B3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_06_29_몰루", "p_06_29_몰루\p_06_29_몰루.vcxproj", "{17B265F5-D5DC-4A20-A36D-30AB4D5BA938}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_06_29_배열포인터", "p_06_29_몰루\p_06_29_몰루.vcxproj", "{17B265F5-D5DC-4A20-A36D-30AB4D5BA938}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_06_30_뭘까", "p_06_30_뭘까\p_06_30_뭘까.vcxproj", "{548B00F0-AF68-490B-ACC0-3D5E49BC8639}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,14 @@ Global
 		{17B265F5-D5DC-4A20-A36D-30AB4D5BA938}.Release|x64.Build.0 = Release|x64
 		{17B265F5-D5DC-4A20-A36D-30AB4D5BA938}.Release|x86.ActiveCfg = Release|Win32
 		{17B265F5-D5DC-4A20-A36D-30AB4D5BA938}.Release|x86.Build.0 = Release|Win32
+		{548B00F0-AF68-490B-ACC0-3D5E49BC8639}.Debug|x64.ActiveCfg = Debug|x64
+		{548B00F0-AF68-490B-ACC0-3D5E49BC8639}.Debug|x64.Build.0 = Debug|x64
+		{548B00F0-AF68-490B-ACC0-3D5E49BC8639}.Debug|x86.ActiveCfg = Debug|Win32
+		{548B00F0-AF68-490B-ACC0-3D5E49BC8639}.Debug|x86.Build.0 = Debug|Win32
+		{548B00F0-AF68-490B-ACC0-3D5E49BC8639}.Release|x64.ActiveCfg = Release|x64
+		{548B00F0-AF68-490B-ACC0-3D5E49BC8639}.Release|x64.Build.0 = Release|x64
+		{548B00F0-AF68-490B-ACC0-3D5E49BC8639}.Release|x86.ActiveCfg = Release|Win32
+		{548B00F0-AF68-490B-ACC0-3D5E49BC8639}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
