@@ -2,48 +2,47 @@
 // #include "header.h"
 #include <stdio.h>
 
-
-
 int main()
 {
 	/*
-	회문은 앞으로 읽으나 뒤로 읽으나 차이가 없는 단어를 말한다.
-	level이나 bob같은 단어
-	회문인지 아닌 지를 판단하려고 한다.
-	회문(Palindrome)함수를 정의해보시오.
-	단, 구현의 편의를 위해서 대소문자까지 모두 일치해야만 회문으로 인정
+	길이가 10인 배열을 선언하고 총 10개의 정수를 입력 받는다
+	단, 입력 받은 숫자가 홀수이면 배열의 앞에서부터 채워나가고,
+	짝수이면 뒤에서부터 채워나가는 형식을 취한다.
+	따라서 사용자가 [1,2,3,4,5,6,7,8,9,10]을 입력했다면,
+	배열에는 [ 1,3,5,7,9,10,8,6,4,2 ] 의 순으로 저장 main 함수만 구현해야한다.
+	main 12줄
 	*/
 
-	char string[100];
+	int arr[10];
+	int i, temp, len, backCnt = 0, frontCnt = 0;
+	len = sizeof(arr) / sizeof(int);
 
-	printf("문자열 입력 : ");
-	scanf_s("%s", &string, (unsigned char)sizeof(string));
-
-	// printf("%s", arr);
-	
-	// 4줄, 결과 main에서
-	if (isPalindrome(string) == 1)	printf("회문입니다. \n");
-	else							printf("회문이 아니네요 \n");
-
-	return 0;
-}
-
-// 길이 반환 함수
-int stringLen(char* pArr)
-{
-	int i, cnt = 0;
-	for (i = 0; pArr[i] != '\0'; i++)
-		cnt++;
-	return cnt;
-}
-
-int isPalindrome(int* pStr)
-{
-	// 일반 변수 2개, 포인터 변수 1개로 충분하다고 하심
-	int i, j = stringLen(pStr);
-	for (i = 0; i < j; i++)
+	// 입력 & 처리
+	printf("총 10개의 숫자 입력 \n");
+	for (i = 0; i < len; i++)
 	{
-		if (pStr[i] == pStr[j--]) return 1;
+		printf("%d번째 입력: ", i + 1);
+		scanf_s("%d", &temp);
+
+		if (temp % 2 == 0)
+		{
+			arr[len - 1 - backCnt] = temp;
+			backCnt++;
+		}
+		else
+		{
+			arr[frontCnt] = temp;
+			frontCnt++;
+		}
 	}
+
+	/
+
+
+	// 출력
+	printf("배열 요소의 출력 : ");
+	for (i = 0; i < len; i++)
+		printf("%d ", arr[i]);
+
 	return 0;
 }

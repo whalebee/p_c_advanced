@@ -35,7 +35,7 @@ int main()
 #pragma endregion
 
 
-#pragma region 연습문제 1번
+#pragma region 연습문제 -> 배열의 값을 5로 나눈 만큼 별 찍기
 // start
 // #include "header.h"
 #include <stdio.h>
@@ -194,7 +194,7 @@ void showArrElem(int* pArr, int len)
 
 
 // NEW
-#pragma region 연습문제 1번
+#pragma region 연습문제 -> Call By Value와 Call By Reference
 // start
 // #include "header.h"
 #include <stdio.h>
@@ -239,7 +239,7 @@ void SqaureByReference(int* pNum)
 #pragma endregion
 
 
-#pragma region 연습문제 2번
+#pragma region 연습문제 -> 3개의 매개변수 swap
 // start
 // #include "header.h"
 #include <stdio.h>
@@ -282,7 +282,7 @@ void swap(int* n1, int* n2, int* n3)
 
 
 // NEW
-#pragma region 그 다음 연습문제 1번
+#pragma region 연습문제 -> 로또 번호 비교
 // start
 // #include "header.h"
 #include <stdio.h>
@@ -330,7 +330,7 @@ int check_same(int* lottoArr, int* myArr, int len)
 
 
 
-#pragma region 연습문제 2번
+#pragma region 연습문제 -> 배열 중복 검사
 // start -> flag 해보는 중
 // #include "header.h"
 #include <stdio.h>
@@ -338,6 +338,8 @@ int check_same(int* lottoArr, int* myArr, int len)
 void input_nums(int* arr, int len);
 void print_nums(int* arr, int len);
 void input_nums_dup(int* arr, int len);
+void input_nums_var(int* arr, int len);
+
 
 int main()
 {
@@ -361,45 +363,75 @@ int main()
 	int arr[6];
 	int len;
 	len = sizeof(arr) / sizeof(int);
+	// input_nums_var(arr, len);
+	// input_nums(arr, len);
 	input_nums_dup(arr, len);
 	print_nums(arr, len);
 
 	return 0;
 }
 
-// arr[i]를 이용한 함수
-void input_nums(int* arr, int len)
+
+// 1. 배열이 아닌 변수를 이용한 함수 정의
+void input_nums_var(int* pArr, int len)
 {
-	int i, j;
+	int putNum = 0, i = 0, j = 0;
 	for (i = 0; i < len; i++)
 	{
-		printf("번호 입력 : ");
-		scanf_s("%d", &arr[i]); // 본진에 넣겠다는 건? 본진안에서 비교하라는 것
+		printf("%d번째 번호 입력 : ", i + 1); // 확인용
+		scanf_s("%d", &putNum);
+		pArr[i] = putNum;
+
+		// 여기안에서 중복이 아닐 때까지 돌기
 		for (j = 0; j < i; j++)
 		{
-			if (arr[i] == arr[j]) // 같은 값이 본진에 있을 때 !
+			if (pArr[j] == putNum)
 			{
-				printf("같은 번호가 있습니다 ! \n");
-				i--;
+				printf("같은 숫자 중복입니다 !! \n");
+				i--; // 중복일 때 다음 인덱스로 넘어갈 수 없는 조건
 			}
 		}
 	}
 }
 
-/*
-duplicate 의미를 생각하며 dup 변수 선언하고 이용
-dup == 1이면 중복이다 라는 뜻을 사용하라고 하신 것
-*/
-void input_nums_dup(int* arr, int len)
+
+// 2. arr[i]를 이용한 함수 정의
+void input_nums(int* arr, int len)
+{
+	int i, j;
+	for (i = 0; i < len; i++)
+	{
+		printf("%d번째 번호 입력 : ", i + 1);
+		scanf_s("%d", &arr[i]); // 본진에 넣겠다는 건? 본진안에서 비교하라는 것
+		for (j = 0; j < i; j++)
+			if (arr[i] == arr[j]) // 같은 값이 본진에 있을 때 !
+			{
+				printf("같은 번호가 있습니다 ! \n");
+				i--;
+				break; // 왜 안했지? 그래도 되나?
+			}
+	}
+}
+
+// 3. dup 변수를 이용한 함수 정의 ( flags )
+void input_nums_dup(int* pArr, int len)
 {
 	int i, j, dup = 0;
 	// dup = 0이 for 문 안에 있을 필요는 없음
-	for (i = 0; i < len; i++)
+	for (i = 0; i < len; i += 1 - dup)
 	{
-		printf("번호 입력 : ");
-		if (dup == 0) scanf_s("%d", &arr[i]);
+		printf("%d번째 번호 입력 : ", i + 1);
+		scanf_s("%d", &pArr[i]);
 		for (j = 0; j < i; j++)
-			if (arr[i] == arr[j]) dup = 1;
+		{
+			if (pArr[i] == pArr[j])
+			{
+				printf("같은 번호 중복입니다 !! \n");
+				dup = 1;
+				break;
+			}
+			else dup = 0;
+		}
 	}
 }
 
@@ -413,36 +445,7 @@ void print_nums(int* arr, int len)
 
 
 
-// 첫번째 -> 답은 맞지만 if가 너무 많고 break;도 너무 많음
-//void input_nums(int* arr, int len)
-//{
-//	int putNum, i = 0, j = 0;
-//	for (i = 0; i < len; i++)
-//	{
-//		printf("번호 입력 : ");
-//		scanf_s("%d", &putNum);
-//		if (i == 0) arr[i] = putNum;
-//		else
-//		{
-//			// 중복검사 for문
-//			for (j = 0; j < len; j++)
-//			{
-//				if (arr[j] == putNum)
-//				{
-//					printf("같은 번호가 있습니다 ! \n");
-//					i--;
-//					break;
-//				}
-//				else if (j == i) // 다 돌았는데도 같지 않으면 넣어주기
-//				{
-//					arr[i] = putNum;
-//					break;
-//				}
-//			}
-//		}
-//		
-//	}
-//}
+
 
 
 
@@ -546,33 +549,129 @@ int main()
 	}
 
 	// 출력
-	for (i--; i >= 0; i--)
-		printf("%d", arr[i]);
+	for (; i > 0; i--)
+		printf("%d", arr[i - 1]);
 
 	return 0;
 }
 
+
+
+
+#pragma endregion
+
+
+
+
+
+
+#pragma region 홀수는 앞으로 짝수는 뒤로 !
+// start
+// #include "header.h"
+#include <stdio.h>
+
+int main()
+{
+	/*
+	길이가 10인 배열을 선언하고 총 10개의 정수를 입력 받는다
+	단, 입력 받은 숫자가 홀수이면 배열의 앞에서부터 채워나가고,
+	짝수이면 뒤에서부터 채워나가는 형식을 취한다.
+	따라서 사용자가 [1,2,3,4,5,6,7,8,9,10]을 입력했다면,
+	배열에는 [ 1,3,5,7,9,10,8,6,4,2 ] 의 순으로 저장 main 함수만 구현해야한다.
+	main 12줄
+	*/
+
+	int arr[10];
+	int i, temp, len, backCnt = 0, frontCnt = 0;
+	len = sizeof(arr) / sizeof(int);
+
+	// 입력 & 처리
+	printf("총 10개의 숫자 입력 \n");
+	for (i = 0; i < len; i++)
+	{
+		printf("%d번째 입력: ", i + 1);
+		scanf_s("%d", &temp);
+
+		if (temp % 2 == 0)
+		{
+			arr[len - 1 - backCnt] = temp;
+			backCnt++;
+		}
+		else
+		{
+			arr[frontCnt] = temp;
+			frontCnt++;
+		}
+	}
+
+	// 출력
+	printf("배열 요소의 출력 : ");
+	for (i = 0; i < len; i++)
+		printf("%d ", arr[i]);
+
+	return 0;
 }
 
 
 
-#pragma endregion
-
-
-#pragma region
-
-
 
 #pragma endregion
 
 
 
 
-#pragma region
+
+#pragma region 회문
+// start
+// #include "header.h"
+#include <stdio.h>
+
+int main()
+{
+	/*
+	회문은 앞으로 읽으나 뒤로 읽으나 차이가 없는 단어를 말한다.
+	level이나 bob같은 단어
+	회문인지 아닌 지를 판단하려고 한다.
+	회문(Palindrome)함수를 정의해보시오.
+	단, 구현의 편의를 위해서 대소문자까지 모두 일치해야만 회문으로 인정
+	*/
+
+	char string[100];
+
+	printf("문자열 입력 : ");
+	scanf_s("%s", &string, (unsigned char)sizeof(string));
+
+	// 4줄, 결과 main에서
+	if (isPalindrome(string) == 1)	printf("회문입니다. \n");
+	else										printf("회문이 아니에요 ! \n");
+	return 0;
+}
+
+// 길이 반환 함수
+int stringLen(char* pArr)
+{
+	int i, cnt = 0;
+	for (i = 0; pArr[i] != '\0'; i++)
+		cnt++;
+	return cnt;
+}
+
+int isPalindrome(char* pStr)
+{
+	// 일반 변수 2개, 포인터 변수 1개로 충분하다고 하심
+	int i, j = stringLen(pStr);
+	for (i = 0; i < j; i++, j--)
+		if (pStr[i] != pStr[j - 1]) return 0;
+	return 1;
+}
+
 
 
 
 #pragma endregion
+
+
+
 
 
 #pragma region
