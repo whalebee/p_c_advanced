@@ -75,7 +75,7 @@ void gugudan(int n1, int n2);
 
 int main()
 {
-	// 16진수
+	
 	/*
 	int num = 0;
 	printf("input: ");
@@ -408,10 +408,10 @@ int main()
 	scanf_s("%d", &num);
 
 	// for문으로 ( 나누기로 풀었으니까 )
-	// 변수 2개?? -> i를 이용해야할 듯 -> ㄴㄴ
-	for (i = 2; (num / i) != 1; )
-		num = num / i;
-	printf("k: %d", num);
+	// 변수 2개로 -> i 필요 없어 집어쳐
+	for (; num > 1; cnt++)
+		num /= 2;
+	printf("%d ", cnt);
 
 	//*  ( 곱하기로 풀어보기 )
 	/*for (i = 2; i < num; cnt++)

@@ -1,48 +1,30 @@
 // start
 // #include "header.h"
 #include <stdio.h>
+#include "연습용.h"
+
+#define FIVE 5 // 상수는 define이나 const로 해놓는게 좋다 ! tip 좋았다
+				// 근데 이거 for문 조건식에서 왜 안 써지지 -> 5; 이걸로 정의해놔서ㅋㅋ
 
 int main()
 {
 	/*
-	길이가 10인 배열을 선언하고 총 10개의 정수를 입력 받는다
-	단, 입력 받은 숫자가 홀수이면 배열의 앞에서부터 채워나가고,
-	짝수이면 뒤에서부터 채워나가는 형식을 취한다.
-	따라서 사용자가 [1,2,3,4,5,6,7,8,9,10]을 입력했다면,
-	배열에는 [ 1,3,5,7,9,10,8,6,4,2 ] 의 순으로 저장 main 함수만 구현해야한다.
-	main 12줄
+	main 함수는 정수형 배열 5개를 선언해서 72, 88, 95, 64, 100으로 초기화
+	print_graph 함수를 호출해서 아래 결과처럼 출력 !
+	점수는 오른쪽 정렬하고 각 점수를 5로 나눈 몫 만큼의 *을 출력
+
+	조건: 함수는 포인터 함수로 해야하고 이 함수는 딱 한 번만 호출할 수 있다.
+	매개변수 제한? X, 함수안에서 지역변수 2개제한, 매개변수도 2개로 제한
 	*/
 
-	int arr[10];
-	int i, temp, len, backCnt = 0, frontCnt = 0;
+	// 선언
+	int arr[5] = { 72, 88, 95, 64, 100 };
+	int i, len;
 	len = sizeof(arr) / sizeof(int);
 
-	// 입력 & 처리
-	printf("총 10개의 숫자 입력 \n");
-	for (i = 0; i < len; i++)
-	{
-		printf("%d번째 입력: ", i + 1);
-		scanf_s("%d", &temp);
-
-		if (temp % 2 == 0)
-		{
-			arr[len - 1 - backCnt] = temp;
-			backCnt++;
-		}
-		else
-		{
-			arr[frontCnt] = temp;
-			frontCnt++;
-		}
-	}
-
-	/
-
-
-	// 출력
-	printf("배열 요소의 출력 : ");
-	for (i = 0; i < len; i++)
-		printf("%d ", arr[i]);
+	// 호출
+	printf_graph(arr, len);
 
 	return 0;
 }
+

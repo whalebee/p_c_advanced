@@ -428,7 +428,7 @@ void line_up(double* max, double* mid, double* min)
 	// Á¤´ä
 	if (*max < *mid)	swap(max, mid);
 	if (*max < *min)	swap(max, min);
-	if (*mid < *min)	swap(mid, min);
+	if (*mid < *min)		swap(mid, min);
 }
 
 void swap(double* n1, double* n2)
