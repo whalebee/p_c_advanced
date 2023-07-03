@@ -41,7 +41,7 @@ int main()
 #include <stdio.h>
 
 #define FIVE 5 // 상수는 define이나 const로 해놓는게 좋다 ! tip 좋았다
-				// 근데 이거 for문 조건식에서 왜 안 써지지 -> 5; 이걸로 정의해놔서ㅋㅋ
+				// 근데 이거 for문 조건식에서 왜 안 써지지 -> 5; 이렇게 저장을 해버렸던 것ㅋㅋ
 
 void printf_graph(int* array, int len);
 

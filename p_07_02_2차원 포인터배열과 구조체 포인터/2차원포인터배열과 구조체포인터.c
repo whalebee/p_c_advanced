@@ -15,11 +15,11 @@ int main()
 	//int** pp = &p;
 
 
-	//printf("%p \n",	p);		// a狼 林家蔼
+	//printf("%p	\n",	p);			// a狼 林家蔼
 	//printf("%d	\n",	*p);		// 5
 	//printf("%p	\n",	*pp);		// a狼 林家蔼
 	//printf("%p	\n",	pp);		// p狼 林家蔼
-	//printf("%d	\n",	**pp);	// 5
+	//printf("%d	\n",	**pp);		// 5
 
 
 
