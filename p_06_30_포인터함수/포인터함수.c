@@ -408,7 +408,7 @@ void input_nums(int* arr, int len)
 			{
 				printf("같은 번호가 있습니다 ! \n");
 				i--;
-				break; // 왜 안했지? 그래도 되나?
+				break; // 쓰지않아도 됨 -> 있으면 연산 빨라짐
 			}
 	}
 }
@@ -503,6 +503,7 @@ void getOddNum(int* arr, int len)
 	printf("홀수 출력 : ");
 	for (i = 0; i < len; i++)
 		if (arr[i] % 2 == 1 || arr[i] % 2 == -1) printf("%d, ", arr[i]);
+	// if (arr[i] % 2 != 0) printf("%d, ", arr[i]); 이게 더 간단
 	printf("\n");
 }
 
@@ -542,7 +543,7 @@ int main()
 	scanf_s("%d", &num);
 
 	// 처리
-	for (i = 0; num > 0; i++)
+	for (i = 0; num > 0; i++) // 조건 조심
 	{
 		arr[i] = num % 2;
 		num /= 2;
@@ -550,7 +551,7 @@ int main()
 
 	// 출력
 	for (; i > 0; i--)
-		printf("%d", arr[i - 1]);
+		printf("%d", arr[i - 1]); 
 
 	return 0;
 }
@@ -582,8 +583,9 @@ int main()
 	*/
 
 	int arr[10];
-	int i, temp, len, backCnt = 0, frontCnt = 0;
+	int i, temp, len;
 	len = sizeof(arr) / sizeof(int);
+	int backCnt = len -1, frontCnt = 0;
 
 	// 입력 & 처리
 	printf("총 10개의 숫자 입력 \n");
@@ -592,7 +594,7 @@ int main()
 		printf("%d번째 입력: ", i + 1);
 		scanf_s("%d", &temp);
 
-		if (temp % 2 == 0)
+		/*if (temp % 2 == 0)
 		{
 			arr[len - 1 - backCnt] = temp;
 			backCnt++;
@@ -601,7 +603,10 @@ int main()
 		{
 			arr[frontCnt] = temp;
 			frontCnt++;
-		}
+		}*/
+		// 간략화 버전
+		if (temp % 2 == 0)	arr[backCnt--] = temp;
+		else				arr[frontCnt++] = temp;
 	}
 
 	// 출력
@@ -643,7 +648,7 @@ int main()
 
 	// 4줄, 결과 main에서
 	if (isPalindrome(string) == 1)	printf("회문입니다. \n");
-	else										printf("회문이 아니에요 ! \n");
+	else							printf("회문이 아니에요 ! \n");
 	return 0;
 }
 
@@ -651,6 +656,7 @@ int main()
 int stringLen(char* pArr)
 {
 	int i, cnt = 0;
+	// while (pArr[cnt] != '\0') cnt++; // 이게 더 짧음
 	for (i = 0; pArr[i] != '\0'; i++)
 		cnt++;
 	return cnt;

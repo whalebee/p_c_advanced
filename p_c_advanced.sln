@@ -15,9 +15,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_06_28_포인터", "p_06_2
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_06_29_배열포인터", "p_06_29_배열포인터\p_06_29_배열포인터.vcxproj", "{17B265F5-D5DC-4A20-A36D-30AB4D5BA938}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_06_30_포인터함수", "p_06_30_포인터함수\p_06_30_포인터함수.vcxproj", "{548B00F0-AF68-490B-ACC0-3D5E49BC8639}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_06_30_포인터 함수", "p_06_30_포인터함수\p_06_30_포인터함수.vcxproj", "{548B00F0-AF68-490B-ACC0-3D5E49BC8639}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_07_02_2차원 포인터배열과 구조체 포인터", "p_07_02_2차원 포인터배열과 구조체 포인터\p_07_02_2차원 포인터배열과 구조체 포인터.vcxproj", "{EF868891-5B44-499A-8F89-99B32272B81D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_07_03_포인터 배열의 정렬", "p_07_03_포인터 배열의 정렬\p_07_03_포인터 배열의 정렬.vcxproj", "{37214F30-3869-4235-B08A-6012F72722BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +93,14 @@ Global
 		{EF868891-5B44-499A-8F89-99B32272B81D}.Release|x64.Build.0 = Release|x64
 		{EF868891-5B44-499A-8F89-99B32272B81D}.Release|x86.ActiveCfg = Release|Win32
 		{EF868891-5B44-499A-8F89-99B32272B81D}.Release|x86.Build.0 = Release|Win32
+		{37214F30-3869-4235-B08A-6012F72722BB}.Debug|x64.ActiveCfg = Debug|x64
+		{37214F30-3869-4235-B08A-6012F72722BB}.Debug|x64.Build.0 = Debug|x64
+		{37214F30-3869-4235-B08A-6012F72722BB}.Debug|x86.ActiveCfg = Debug|Win32
+		{37214F30-3869-4235-B08A-6012F72722BB}.Debug|x86.Build.0 = Debug|Win32
+		{37214F30-3869-4235-B08A-6012F72722BB}.Release|x64.ActiveCfg = Release|x64
+		{37214F30-3869-4235-B08A-6012F72722BB}.Release|x64.Build.0 = Release|x64
+		{37214F30-3869-4235-B08A-6012F72722BB}.Release|x86.ActiveCfg = Release|Win32
+		{37214F30-3869-4235-B08A-6012F72722BB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
