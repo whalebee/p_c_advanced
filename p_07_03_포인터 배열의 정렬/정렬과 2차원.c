@@ -230,13 +230,90 @@ int main()
 
 
 #pragma region
+// start
+// #include "header.h"
+#include <stdio.h>
+
+
+
+int main()
+{
+	/* 연습문제
+	가로의 길이가 9, 세로의 길이가 3인 int형 2차원 배열 선언하고
+	구구단 중에 2,3,4단을 저장해라
+
+	확인하기 위한 출력
+	*/
+
+	int gugudan[3][9];
+	int i, j;
+
+	for (i = 0; i < 3; i++)
+		for (j = 0; j < 9; j++)
+			gugudan[i][j] = (i + 2) * (j + 1); // 연산 우선순위 생각
+
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 9; j++)
+			printf("%3d ", gugudan[i][j]);
+		printf("\n");
+	}
+
+
+	return 0;
+}
 
 
 
 #pragma endregion
 
 
-#pragma region
+#pragma region 연습문제 -> 4와 2, 행열 관계 (미완성)
+// start
+// #include "header.h"
+#include <stdio.h>
+
+
+
+int main()
+{
+	/*
+	배열 A와 배열 B 선언
+	배열 A는 선언과 동시에 그림대로 초기화
+	그 후에 배열 B는 그림대로 초기화를 하되, 반드시 !!
+	배열 A에 저장된 값을 이용해서 초기화 진행.
+	*/
+
+	int arrA[2][4] = { 1,2,3,4,5,6,7,8 };
+	int arrB[4][2];
+	int i, j;
+
+	for (i = 0; i < 4; i++)
+		for (j = 0; j < 2; j++)
+		{
+			arrB[i][j] = arrA[j][i];
+		}
+
+
+
+	// 출력 합쳐
+	// 출력 A
+	printf("arrA: \n");
+	for (i = 0; i < 2; i++)
+	{
+		for (j = 0; j < 4; j++)
+			printf("%3d", arrA[i][j]);
+		printf("\n");
+
+		for (j = 0; j < 4; j++)
+			printf("%3d", arrB[j][i]);
+		printf("\n");
+	}
+
+
+	return 0;
+}
+
 
 
 
