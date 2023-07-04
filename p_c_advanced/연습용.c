@@ -1,49 +1,61 @@
 // start
 // #include "header.h"
 #include <stdio.h>
+#include <math.h>
+#include <string.h>
+
+struct person {
+	char name[50];
+	char phoneNum[50];
+	int age;
+};
 
 int main()
 {
-	/*
-	정수형 2차원 배열 int math[2][3]의 항목 값을 각각
-	행+열의 값으로 설정한 후에 출력 -> math[1][2]의 값은 3
-	math[2][3] 배열을 새로운 2차원 배열 rotateMath[3][2]로 변환하여,
-	저장하고 출력
+	/* 예제 
+	person형 구조체 정의
+	- 이름.name
+	- 전화번호.phoneNum
+	- 나이.age
 
-	즉, 2차원 행렬 math[2][3]을 오른쪽, 시게방향으로 회전한 형태로 변환하여 저장
+	main함수에서
+	- person형 변수 man1, man2 선언
+	- 이름에 김찬호 -> strcpy() 사용 -> 소속은 string.h
+	- 010-123-4567
+	- 나이에 40
 
-	hint: index로 바꿔서 풀기
+	이름, 번호, 나이 출력
 
-	for문 덩어리는 총 2개로 !! ( 기본은 3개가 맞음 )
+	(man2)
+	사용자로부터 이름, 번호, 나이 입력 받기
+	이름, 번호, 나이 출력
 	*/
-
-	int math[2][3];
-	int rotateMath[3][2];
-	int i, j;
-
-	printf("--- math[2x3] --- \n");
-	for (i = 0; i < 2; i++)
-	{
-		for (j = 0; j < 3; j++)
-		{
-			math[i][j] = i + j;
-			printf("%d ", math[i][j]);
-			rotateMath[j][(i + 1) % 2] = math[i][j];
-		}
-		printf("\n");
-	}
 	
-	printf("--- rotateMath[3x2] --- \n");
-	for (i = 0; i < 3; i++)
-	{
-		for (j = 0; j < 2; j++)
-			printf("%d ", rotateMath[i][j]);
-		printf("\n");
-	}
+	// 선언
+	struct person man1;
+	struct person man2;
 
+	// 입력
+	strcpy_s(man1.name, sizeof(man1.name), "김찬호");
+	strcpy_s(man1.phoneNum, sizeof(man1.phoneNum), "010-123-4567");
+	man1.age = 40;
 
+	fputs("이름? ", stdout);
+	scanf_s("%s", man2.name, (unsigned char)sizeof(man2.name));
+	fputs("번호? ", stdout);
+	scanf_s("%s", man2.phoneNum, (unsigned char)sizeof(man2.phoneNum));
+	fputs("나이? ", stdout);
+	scanf_s("%d", &man2.age);
 
-
+	
+	// 출력
+	puts(" ");
+	printf("입력되어있던 사용자\n");
+	printf("이름: %s\n번호: %s\n나이: %d\n", man1.name, man1.phoneNum, man1.age);
+	
+	puts(" ");
+	printf("입력받은 사용자 \n");
+	printf("이름: %s\n번호: %s\n나이: %d\n", man2.name, man2.phoneNum, man2.age);
 
 	return 0;
 }

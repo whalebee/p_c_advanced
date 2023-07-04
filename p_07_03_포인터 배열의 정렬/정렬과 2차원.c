@@ -343,6 +343,8 @@ int main()
 		{
 			math[i][j] = i + j;
 			rotateMath[j][(i + 1) % 2] = math[i][j];
+			// rotateMath[j][1-i] = math[i][j];
+			// rotateMath[j][!i] = math[i][j];
 			printf("%-3d ", math[i][j]);
 		}
 		printf("\n\n");
