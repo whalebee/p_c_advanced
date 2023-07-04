@@ -1,5 +1,3 @@
-// start
-// #include "header.h"
 #include <stdio.h>
 
 struct employee
@@ -21,15 +19,19 @@ int main()
 	*/
 	struct employee salary_info;
 
-	fputs("이름은?: ", stdout);
+	fputs("이름? ", stdout);
 	scanf_s("%s", salary_info.name, (unsigned int)sizeof(salary_info.name));
-	fputs("주민등록번호는?: ", stdout);
+	fputs("주민등록번호? ", stdout);
 	scanf_s("%s", salary_info.addr_num, (unsigned int)sizeof(salary_info.addr_num));
-	fputs("월급은?: ", stdout);
+	fputs("급여? ", stdout);
 	scanf_s("%d", &salary_info.salary);
 
 
-	printf("--- 종합 정보--- \n\n이름: %s \n주민등록번호: %s \n월급은?: %d", salary_info.name, salary_info.addr_num, salary_info.salary);
+	printf("이름은 : %s \n주민등록번호: %s\n급여: %d", salary_info.name, salary_info.addr_num, salary_info.salary);
+
+
+
+
 
 	return 0;
 }
