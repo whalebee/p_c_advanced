@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_07_04_DDA와 DP, 구조�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_07_05_구조체,배열,포인터", "p_07_05_구조체,배열,포인터\p_07_05_구조체,배열,포인터.vcxproj", "{D5F9F918-59E1-416F-9A82-53BBC68E5CAB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_07_06_이차원배열_연산", "p_07_06_이차원배열_연산\p_07_06_이차원배열_연산.vcxproj", "{886B785E-F85D-4999-8FC6-688B9A329216}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -121,6 +123,14 @@ Global
 		{D5F9F918-59E1-416F-9A82-53BBC68E5CAB}.Release|x64.Build.0 = Release|x64
 		{D5F9F918-59E1-416F-9A82-53BBC68E5CAB}.Release|x86.ActiveCfg = Release|Win32
 		{D5F9F918-59E1-416F-9A82-53BBC68E5CAB}.Release|x86.Build.0 = Release|Win32
+		{886B785E-F85D-4999-8FC6-688B9A329216}.Debug|x64.ActiveCfg = Debug|x64
+		{886B785E-F85D-4999-8FC6-688B9A329216}.Debug|x64.Build.0 = Debug|x64
+		{886B785E-F85D-4999-8FC6-688B9A329216}.Debug|x86.ActiveCfg = Debug|Win32
+		{886B785E-F85D-4999-8FC6-688B9A329216}.Debug|x86.Build.0 = Debug|Win32
+		{886B785E-F85D-4999-8FC6-688B9A329216}.Release|x64.ActiveCfg = Release|x64
+		{886B785E-F85D-4999-8FC6-688B9A329216}.Release|x64.Build.0 = Release|x64
+		{886B785E-F85D-4999-8FC6-688B9A329216}.Release|x86.ActiveCfg = Release|Win32
+		{886B785E-F85D-4999-8FC6-688B9A329216}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

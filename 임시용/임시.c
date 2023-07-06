@@ -1,40 +1,29 @@
-// start
-// #include "header.h"
 #include <stdio.h>
 
+void MaxAnㄹdMin(int**, int**, int*, int);
 
+int main() {
+    int* maxPtr; //arr[5]중 가장 큰 값의 주소
+    int* minPtr; //arr[5]중 가장 작은 값의 주소
+    int arr[5];
+    int i, len = sizeof(arr) / sizeof(int);
 
-int main()
-{
-	/*
-	배열 A와 배열 B 선언
-	배열 A는 선언과 동시에 그림대로 초기화
-	그 후에 배열 B는 그림대로 초기화를 하되, 반드시 !!
-	배열 A에 저장된 값을 이용해서 초기화 진행.
-	*/
+    for (i = 0; i < len; i++) {
+        printf("정수 입력 %d:", i + 1);
+        scanf_s("%d", &arr[i]);
+    }
 
-	int arrA[2][4] = { 1,2,3,4,5,6,7,8 };
-	int arrB[4][2];
-	int i, j;
+    /*MaxAndMin(&maxPtr,&minPtr,arr,len);*/
 
-	printf("arrA: \n");
-	for (i = 0; i < 2; i++)
-	{
-		for (j = 0; j < 4; j++)
-		{
-			arrB[j][i] = arrA[i][j];
-			printf("%4d", arrA[i][j]);
-		}
-		printf("\n\n");
-	}
+    //MaxAndMin함수와 비교
+    maxPtr = minPtr = &arr[0];
+    for (i = 1; i < len; i++) {
+        if (*maxPtr < arr[i]) maxPtr = &arr[i];
+        else minPtr = &arr[i];
+    }
 
-	printf("arrB: \n");
-	for (i = 0; i < 4; i++)
-	{
-		for (j = 0; j < 2; j++)
-				printf("%4d", arrB[i][j]);
-			printf("\n");
-		}
+    printf("최대: %d, 최소: %d", *maxPtr, *minPtr);
 
-	return 0;
+    return 0;
 }
+

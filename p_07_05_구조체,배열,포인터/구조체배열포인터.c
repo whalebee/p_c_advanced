@@ -298,6 +298,7 @@ int main() // 연습문제
 #include <stdio.h>
 #include <string.h>
 
+// double score(char grade[2]); // 선생님 버전
 double score(char* grade);
 
 struct student
@@ -351,6 +352,7 @@ int main()
 }
 
 // 등급(A0 같은 문자)을 주면 해당하는 점수로 반환
+// double score(char grade[2]); // 선생님 버전
 double score(char* grade)
 {
 	/*printf("grade 는 : %s\n", grade);
