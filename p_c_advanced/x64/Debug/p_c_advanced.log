@@ -1,2 +1,4 @@
 ﻿  연습용.c
-  p_c_advanced.vcxproj -> C:\Users\Administrator\Source\Repos\p_c_advanced\x64\Debug\A.exe
+C:\Users\Administrator\source\repos\p_c_advanced\p_c_advanced\연습용.c(35,9): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'Point'입니다.
+연습용.obj : error LNK2019: subPosmain 함수에서 참조되는 확인할 수 없는 외부 기호
+C:\Users\Administrator\Source\Repos\p_c_advanced\x64\Debug\A.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.

@@ -8,7 +8,8 @@ typedef struct point
 	int yPos;
 }Point;
 
-
+Point addPos(Point pos1, Point pos2);
+Point subPos(Point pos1, Point pos2);
 
 int main()
 {
@@ -26,11 +27,26 @@ int main()
 	Point pos1 = { 5,6 };
 	Point pos2 = { 2,9 };
 
-	printf("[%d, %d] \n", pos1.xPos + pos2.xPos, pos1.yPos + pos2.yPos);
-	printf("[%d, %d] \n", pos1.xPos - pos2.xPos, pos1.yPos - pos2.yPos);
+	
+	subPos(pos1, pos2);
 
-
+	/*printf("[%d, %d] \n", pos1.xPos + pos2.xPos, pos1.yPos + pos2.yPos);
+	printf("[%d, %d] \n", pos1.xPos - pos2.xPos, pos1.yPos - pos2.yPos);*/
+	printf("[%d] \n", addPos(pos1, pos2));
+	// printf("[%d, %d] \n", );
 
 	return 0;
 }
 
+// 함수의 기능은 한 개
+Point addPos(Point pos1, Point pos2)
+{
+	Point temp = { pos1.xPos + pos2.xPos, pos2.yPos + pos2.yPos };
+	return temp;
+}
+
+//void subPos(Point pos1, Point pos2)
+//{
+//	pos1->xPos -= pos2->xPos;
+//	pos1->yPos -= pos2->yPos;
+//}
