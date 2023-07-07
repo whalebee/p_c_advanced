@@ -320,8 +320,11 @@ int main()
 	Point pos1 = { 5,6 };
 	Point pos2 = { 2,9 };
 
-	printf("[%d, %d] \n", addPos(pos1, pos2).xPos, addPos(pos1, pos2).yPos);
-	printf("[%d, %d] \n", subPos(pos1, pos2).xPos, subPos(pos1, pos2).yPos);
+	Point result = addPos(pos1, pos2);
+	printf("[%d, %d] \n", result.xPos, result.yPos);
+
+	result = subPos(pos1, pos2);
+	printf("[%d, %d] \n", result.xPos, result.yPos);
 
 
 	return 0;
