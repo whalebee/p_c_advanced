@@ -202,7 +202,7 @@ void getUserData2(USERDATA* data)
 #pragma endregion
 
 
-#pragma region 구조체 직사각형의 넓이와 좌표
+#pragma region 연습문제 -> 구조체 직사각형의 넓이와 좌표
 // start
 // #include "header.h"
 #include <stdio.h>
@@ -224,8 +224,8 @@ void ShowRecArea(RECTANGLE Rec);
 void ShowRecArea2(RECTANGLE* Rec); // 출력용
 
 // 좌표용 함수
-void ShowRecPos(RECTANGLE Rectangle);
-void ShowRecPos2(RECTANGLE* Rectangle);
+void ShowRecPos(RECTANGLE Rec);
+void ShowRecPos2(RECTANGLE* Rec);
 
 int main()
 {
@@ -259,12 +259,12 @@ void ShowRecArea(RECTANGLE Rec)
 	printf("Rectangle의 넓이: %d\n", Rec.rightBot.xPos - Rec.leftTop.xPos)* (Rec.rightBot.yPos - Rec.leftTop.xPos);
 }
 
-void ShowRecPos(RECTANGLE Rectangle)
+void ShowRecPos(RECTANGLE Rec)
 {
-	printf("좌 상단: [%d, %d]\n", Rectangle.leftTop.xPos, Rectangle.leftTop.yPos);
-	printf("좌 하단: [%d, %d]\n", Rectangle.leftTop.xPos, Rectangle.rightBot.yPos);
-	printf("우 상단: [%d, %d]\n", Rectangle.rightBot.xPos, Rectangle.leftTop.xPos);
-	printf("우 하단: [%d, %d]\n", Rectangle.rightBot.xPos, Rectangle.rightBot.yPos);
+	printf("좌 상단: [%d, %d] \n", Rec.leftTop.xPos, Rec.leftTop.yPos);
+	printf("좌 하단: [%d, %d] \n", Rec.leftTop.xPos, Rec.rightBot.yPos);
+	printf("우 상단: [%d, %d] \n", Rec.rightBot.xPos, Rec.leftTop.yPos);
+	printf("우 하단: [%d, %d] \n", Rec.rightBot.xPos, Rec.rightBot.yPos);
 }
 
 void ShowRecArea2(RECTANGLE* Rec)
@@ -272,12 +272,12 @@ void ShowRecArea2(RECTANGLE* Rec)
 	printf("Rectangle2의 넓이: %d\n", (Rec->rightBot.xPos - Rec->leftTop.xPos) * (Rec->rightBot.yPos - Rec->leftTop.xPos));
 }
 
-void ShowRecPos2(RECTANGLE* Rectangle)
+void ShowRecPos2(RECTANGLE* Rec)
 {
-	printf("좌 상단: [%d, %d]\n", Rectangle->leftTop.xPos, Rectangle->leftTop.yPos);
-	printf("좌 하단: [%d, %d]\n", Rectangle->leftTop.xPos, Rectangle->rightBot.yPos);
-	printf("우 상단: [%d, %d]\n", Rectangle->rightBot.xPos, Rectangle->leftTop.xPos);
-	printf("우 하단: [%d, %d]\n", Rectangle->rightBot.xPos, Rectangle->rightBot.yPos);
+	printf("좌 상단: [%d, %d] \n", Rec->leftTop.xPos, Rec->leftTop.yPos);
+	printf("좌 하단: [%d, %d] \n", Rec->leftTop.xPos, Rec->rightBot.yPos);
+	printf("우 상단: [%d, %d] \n", Rec->rightBot.xPos, Rec->leftTop.yPos);
+	printf("우 하단: [%d, %d] \n", Rec->rightBot.xPos, Rec->rightBot.yPos);
 }
 
 
@@ -375,7 +375,7 @@ int main()
 #pragma endregion
 
 
-#pragma region 구조체를 이용한 돼지저금통
+#pragma region 연습문제 -> 구조체를 이용한 돼지저금통
 // start
 // #include "header.h"
 #include <stdio.h>
