@@ -1,0 +1,36 @@
+﻿  구조체응용.c
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(2,32): error C2059: 구문 오류: '숫자의 접미사가 잘못되었습니다.'
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(48,21): warning C4047: '함수': 'Student *'의 간접 참조 수준이 'Student (*)[5]'과(와) 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(48,13): warning C4024: 'input_data': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(49,20): warning C4047: '함수': 'Student *'의 간접 참조 수준이 'Student (*)[5]'과(와) 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(49,12): warning C4024: 'calc_data': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(51,22): warning C4047: '함수': 'Student *'의 간접 참조 수준이 'Student (*)[5]'과(와) 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(51,14): warning C4024: 'printf_data': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(52,20): warning C4047: '함수': 'Student *'의 간접 참조 수준이 'Student (*)[5]'과(와) 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(52,12): warning C4024: 'sort_data': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(54,22): warning C4047: '함수': 'Student *'의 간접 참조 수준이 'Student (*)[5]'과(와) 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(54,14): warning C4024: 'printf_data': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(126,1): warning C4005: 'LEN': 매크로 재정의
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(7,1): message : 'LEN'의 이전 정의를 참조하십시오.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(139,2): error C2371: 'Student': 재정의. 기본 형식이 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(20,2): message : 'Student' 선언을 참조하십시오.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(147,5): error C2084: 'int main()' 함수에 이미 본문이 있습니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(28,5): message : 'main'의 이전 정의를 참조하십시오.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(169,21): warning C4047: '함수': 'Student *'의 간접 참조 수준이 'Student (*)[5]'과(와) 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(169,13): warning C4024: 'input_data': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(170,20): warning C4047: '함수': 'Student *'의 간접 참조 수준이 'Student (*)[5]'과(와) 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(170,12): warning C4024: 'calc_data': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(172,22): warning C4047: '함수': 'Student *'의 간접 참조 수준이 'Student (*)[5]'과(와) 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(172,14): warning C4024: 'printf_data': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(173,20): warning C4047: '함수': 'Student *'의 간접 참조 수준이 'Student (*)[5]'과(와) 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(173,12): warning C4024: 'sort_data': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(175,22): warning C4047: '함수': 'Student *'의 간접 참조 수준이 'Student (*)[5]'과(와) 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(175,14): warning C4024: 'printf_data': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(180,6): error C2084: 'void input_data(Student *)' 함수에 이미 본문이 있습니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(59,6): message : 'input_data'의 이전 정의를 참조하십시오.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(192,6): error C2084: 'void calc_data(Student *)' 함수에 이미 본문이 있습니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(71,6): message : 'calc_data'의 이전 정의를 참조하십시오.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(208,6): error C2084: 'void printf_data(Student *)' 함수에 이미 본문이 있습니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(87,6): message : 'printf_data'의 이전 정의를 참조하십시오.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(216,6): error C2084: 'void sort_data(Student *)' 함수에 이미 본문이 있습니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_10_구조체_응용\구조체응용.c(95,6): message : 'sort_data'의 이전 정의를 참조하십시오.

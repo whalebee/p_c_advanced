@@ -123,7 +123,7 @@ void sort_data(Student* example)
 // #include "header.h"
 #include <stdio.h>
 
-#define LEN 4
+#define LEN 5
 #define SUB_CNT 3.0
 
 typedef struct
@@ -217,16 +217,19 @@ void sort_data(Student* example)
 {
 	Student temp;
 	int i, j, max = 0;
-	for (i = 0; i < LEN - 1; i++)
+	for (i = 0; i < LEN; i++)
 	{
 		// 해야할 때와 안 해야할 때를 가려서?
 		max = i;
-		for (j = 0; j < LEN - 1; j++)
-			if (example[max].avg < example[j + 1].avg) max = j;
+		for (j = i; j < LEN; j++)
+			if (example[max].avg < example[j].avg) max = j;
 
-		temp = example[j];
-		example[j] = example[max];
-		example[max] = temp;
+
+		temp = example[max];
+		example[max] = example[i];
+		example[i] = temp;
+
+
 		/*
 		3 5 1 4
 		1이라는 인덱스 값이 가장 크다는 것을 찾음
@@ -415,7 +418,77 @@ int main()
 #pragma endregion
 
 
-#pragma region
+#pragma region 파일 입출력 feof 예제
+// start
+// #include "header.h"
+#include <stdio.h>
+
+
+
+int main()
+{
+	/*
+	src.txt를 읽기 모드. 지시자 이름 src
+	des.txt를 쓰기 모드. 지시자 이름 des
+
+	src든 des든 못 열면 "파일 오픈 실패" 출력하고 프로그램 종료
+
+	src로부터 한 글자씩 읽어서 des에 저장(반복문 while사용)
+	파일 끝까지 잘 되었다면 "파일 복사 완료"출력. puts
+	파일 끝까지 잘 안 되었다면 "파일 복사 실패"출력. puts
+
+	리소스 반환
+	*/
+	FILE* src, * des;
+	// FILE;
+	// 합친거
+	if (fopen_s(&src, "C:\\cTest\\src.txt", "rt") != 0 || fopen_s(&des, "C:\\cTest\\des.txt", "wt") != 0)
+	{
+		puts("파일 오픈 실패!!");
+		return -1;
+	}
+	// 나눈거
+	/*if (fopen_s(&src, "C:\\cTest\\src.txt", "rt") != 0)
+	{
+		puts("파일 오픈 실패");
+		return -1;
+	}
+	if (fopen_s(&des, "C:\\cTest\\des.txt", "wt") != 0)
+	{
+		puts("파일 오픈 실패");
+		return -1;
+	}*/
+
+	// while은 그저 복사할 뿐
+	// feof(src) == 0 이건 판단할 때만 쓰기
+	int i = 0;
+	while ((i = fgetc(src)) != EOF)
+		fputc(i, des);
+
+	if (feof(src) == 0)
+	{
+		puts("파일 복사 실패");
+		return -1;
+	}
+	puts("파일 복사 완료");
+
+	/* 문제점
+	1. des.txt 파일안에 src.txt의 마지막 NULL값도 가져온 듯 하다.
+	조건을 제대로 해주니 NULL을 가져오지 않았다 !
+
+	2. 파일 복사 실패를 구분하는 방법을 모르겠다.
+	feof(src) == 0 으로 해결보았다.
+
+	*/
+
+	fclose(src);
+	fclose(des);
+
+	return 0;
+}
+
+
+
 
 
 

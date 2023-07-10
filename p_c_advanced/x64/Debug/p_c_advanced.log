@@ -1,2 +1,13 @@
 ﻿  연습용.c
-  p_c_advanced.vcxproj -> C:\Users\Administrator\Source\Repos\p_c_advanced\x64\Debug\A.exe
+C:\Users\BOSS\source\repos\p_c_advanced\p_c_advanced\연습용.c(1,1): warning C4828: 파일에 0xc9a 오프셋에서 시작하는 문자가 포함되어 있습니다. 이 문자는 현재 원본 문자 집합에서 잘못된 문자입니다(코드 페이지 949).
+C:\Users\BOSS\source\repos\p_c_advanced\p_c_advanced\연습용.c(48,21): warning C4047: '함수': 'Student *'의 간접 참조 수준이 'Student (*)[5]'과(와) 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_c_advanced\연습용.c(48,13): warning C4024: 'input_data': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_c_advanced\연습용.c(49,20): warning C4047: '함수': 'Student *'의 간접 참조 수준이 'Student (*)[5]'과(와) 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_c_advanced\연습용.c(49,12): warning C4024: 'calc_data': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_c_advanced\연습용.c(51,22): warning C4047: '함수': 'Student *'의 간접 참조 수준이 'Student (*)[5]'과(와) 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_c_advanced\연습용.c(51,14): warning C4024: 'printf_data': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_c_advanced\연습용.c(52,20): warning C4047: '함수': 'Student *'의 간접 참조 수준이 'Student (*)[5]'과(와) 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_c_advanced\연습용.c(52,12): warning C4024: 'sort_data': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_c_advanced\연습용.c(54,22): warning C4047: '함수': 'Student *'의 간접 참조 수준이 'Student (*)[5]'과(와) 다릅니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_c_advanced\연습용.c(54,14): warning C4024: 'printf_data': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+  p_c_advanced.vcxproj -> C:\Users\BOSS\Source\Repos\p_c_advanced\x64\Debug\A.exe
