@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_07_07_구조체 변수의
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "project_test", "project_test\project_test.vcxproj", "{3DBCC7C1-C350-41B3-95FC-35BFB1E41181}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_07_10_구조체_응용", "p_07_10_구조체_응용\p_07_10_구조체_응용.vcxproj", "{B8933D80-BFFC-459F-A28D-10491C7E936C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -151,6 +153,14 @@ Global
 		{3DBCC7C1-C350-41B3-95FC-35BFB1E41181}.Release|x64.Build.0 = Release|x64
 		{3DBCC7C1-C350-41B3-95FC-35BFB1E41181}.Release|x86.ActiveCfg = Release|Win32
 		{3DBCC7C1-C350-41B3-95FC-35BFB1E41181}.Release|x86.Build.0 = Release|Win32
+		{B8933D80-BFFC-459F-A28D-10491C7E936C}.Debug|x64.ActiveCfg = Debug|x64
+		{B8933D80-BFFC-459F-A28D-10491C7E936C}.Debug|x64.Build.0 = Debug|x64
+		{B8933D80-BFFC-459F-A28D-10491C7E936C}.Debug|x86.ActiveCfg = Debug|Win32
+		{B8933D80-BFFC-459F-A28D-10491C7E936C}.Debug|x86.Build.0 = Debug|Win32
+		{B8933D80-BFFC-459F-A28D-10491C7E936C}.Release|x64.ActiveCfg = Release|x64
+		{B8933D80-BFFC-459F-A28D-10491C7E936C}.Release|x64.Build.0 = Release|x64
+		{B8933D80-BFFC-459F-A28D-10491C7E936C}.Release|x86.ActiveCfg = Release|Win32
+		{B8933D80-BFFC-459F-A28D-10491C7E936C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
