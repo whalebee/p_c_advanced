@@ -41,13 +41,11 @@ int main()
 
 	// while은 그저 복사할 뿐
 	// feof(src) == 0 이건 판단할 때만 쓰기
-	while (fgetc(src) != EOF)
-	{
-		printf("%c",fgetc(src));
-		fputc(fgetc(src), des);
-		// printf("확인 %c", fgetc(src));
-		
-	}
+	char temp[100];
+	int i = 0;
+	while ( ( temp[i] = fgetc(src) ) != EOF)
+		fputc(temp[i++], des);
+
 
 	if (feof(src) == 0)
 		{
