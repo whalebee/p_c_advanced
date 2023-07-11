@@ -33,6 +33,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "project_test", "project_tes
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_07_10_구조체_응용", "p_07_10_구조체_응용\p_07_10_구조체_응용.vcxproj", "{B8933D80-BFFC-459F-A28D-10491C7E936C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_07_11_파일입출력", "p_07_11_파일입출력\p_07_11_파일입출력.vcxproj", "{293186A2-2BDE-46B5-8B6F-01764A3785E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -161,6 +163,14 @@ Global
 		{B8933D80-BFFC-459F-A28D-10491C7E936C}.Release|x64.Build.0 = Release|x64
 		{B8933D80-BFFC-459F-A28D-10491C7E936C}.Release|x86.ActiveCfg = Release|Win32
 		{B8933D80-BFFC-459F-A28D-10491C7E936C}.Release|x86.Build.0 = Release|Win32
+		{293186A2-2BDE-46B5-8B6F-01764A3785E9}.Debug|x64.ActiveCfg = Debug|x64
+		{293186A2-2BDE-46B5-8B6F-01764A3785E9}.Debug|x64.Build.0 = Debug|x64
+		{293186A2-2BDE-46B5-8B6F-01764A3785E9}.Debug|x86.ActiveCfg = Debug|Win32
+		{293186A2-2BDE-46B5-8B6F-01764A3785E9}.Debug|x86.Build.0 = Debug|Win32
+		{293186A2-2BDE-46B5-8B6F-01764A3785E9}.Release|x64.ActiveCfg = Release|x64
+		{293186A2-2BDE-46B5-8B6F-01764A3785E9}.Release|x64.Build.0 = Release|x64
+		{293186A2-2BDE-46B5-8B6F-01764A3785E9}.Release|x86.ActiveCfg = Release|Win32
+		{293186A2-2BDE-46B5-8B6F-01764A3785E9}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

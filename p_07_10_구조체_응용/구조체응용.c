@@ -119,89 +119,23 @@ void sort_data(Student* example)
 
 
 #pragma region 첫번째 연습문제 응용
-// start
-// #include "header.h"
-#include <stdio.h>
-
-#define LEN 5
-#define SUB_CNT 3.0
-
-typedef struct
-{
-	char name[30];
-	int stuNum;
-	int kor;
-	int eng;
-	int math;
-	int total;
-	double avg;
-	char grade;
-}Student;
-
-void input_data(Student* example);
-void calc_data(Student* example);
-void printf_data(Student* example);
-void sort_data(Student* example);
-
-
-int main()
-{
-	// 배열의 SIZE를 define으로 놓고
-	// 길이는 매개변수로 줄 것
-	/*
-	5명의 학번, 이름, 국어,영어, 수학 점수를 입력받아 정렬 전 데이터 출력 후에
-	정렬 후 데이터 이렇게 2개의 데이터를 출력
-
-	학번, 이름, 과목 점수, 총점, 평균, 학점 구조체 생성
-
-	main함수에서 input_data, calc_data 호출하고 이후 printf_data와
-	sort_data 함수 출력한 뒤 마지막으로 printf_data 함수 호출 ( 비교를 위해 )
-
-	input_data 함수는 5명의 정보(학번, 이름, 점수)를 입력
-	calc_data 함수는 5명의 과목 총점, 평균, 학점 계산
-	(90이상 A, 80이상 B, 70이상 C, 외 F)
-
-	sort_data 함수는 평균 점수로 정렬
-	printf_data 함수는 5명의 정보 출력
-	*/
-	Student example[5] = { 0, };
-
-	input_data(&example);
-	calc_data(&example);
-	printf("#정렬 전 데이터... \n");
-	printf_data(&example);
-	sort_data(&example);
-	printf("#정렬 후 데이터... \n");
-	printf_data(&example);
-
-	return 0;
-}
-
-void input_data(Student* example)
-{
-	int i;
-	for (i = 0; i < LEN; i++)
-	{
-		printf("학번 : "); scanf_s("%d", &example[i].stuNum);
-		printf("이름 : "); scanf_s("%s", example[i].name, (unsigned char)sizeof(example->name));
-		printf("국어, 영어, 수학 점수 : "); scanf_s("%d %d %d", &example[i].kor, &example[i].eng, &example[i].math);
-	}
-}
-
 // 총점, 평균, 학점 계산
 void calc_data(Student* example)
 {
 	int i;
 	for (i = 0; i < LEN; i++)
 	{
-		example[i].total = example[i].kor + example[i].eng + example[i].math;
+		example->total = example->kor + example->eng + example->math;
 		// printf("총점확인: %d \n", example[i].total);
-		example[i].avg = example[i].total / SUB_CNT;
-		if (example[i].avg >= 90)	example[i].grade = 'A';
-		else if (example[i].avg >= 80)	example[i].grade = 'B';
-		else if (example[i].avg >= 70)	example[i].grade = 'C';
-		else 							example[i].grade = 'F';
-		// printf("학점 확인 : %c \n", example[i].grade); 
+		example->avg = example->total / SUB_CNT;
+		if		(example->avg >= 90)	example->grade = 'A';
+		else if (example->avg >= 80)	example->grade = 'B';
+		else if (example->avg >= 70)	example->grade = 'C';
+		else 							example->grade = 'F';
+		example++;
+		// printf("학점 확인 : %c \n", example[i].grade);
+		// 피드백: 90.0 80.0 이런식으로 소수점으로 써놔도 괜찮을 듯
+		// 주소값을 이용한 방식 ! ( 배열 말고 )
 	}
 }
 
@@ -229,6 +163,13 @@ void sort_data(Student* example)
 		example[max] = example[i];
 		example[i] = temp;
 
+		// 쌤 방법
+		/*if (max != i)
+		{
+			temp = example[max];
+			example[max] = example[i];
+			example[i] = temp;
+		}*/
 
 		/*
 		3 5 1 4
@@ -461,9 +402,9 @@ int main()
 
 	// while은 그저 복사할 뿐
 	// feof(src) == 0 이건 판단할 때만 쓰기
-	int i = 0;
-	while ((i = fgetc(src)) != EOF)
-		fputc(i, des);
+	int temp = 0;
+	while ((temp = fgetc(src)) != EOF)
+		fputc(temp, des);
 
 	if (feof(src) == 0)
 	{
@@ -495,14 +436,107 @@ int main()
 #pragma endregion
 
 
-#pragma region
+#pragma region 파일 입출력 선생님 버전
+// start
+// #include "header.h"
+#include <stdio.h>
+int main()
+{
+
+	// 선언
+	FILE* src, * des;
+	errno_t src_err;
+	errno_t des_err;
+	src_err = fopen_s(&src, "C:\\cTest\\src.txt", "rt");
+	des_err = fopen_s(&des, "C:\\cTest\\des.txt", "wt");
+
+	// 예외
+	if (src_err != 0 || des_err != 0)
+	{
+		puts("파일 오픈 실패!!");
+		return -1;
+	}
+
+	// 처리
+	int temp = 0;
+	while ((temp = fgetc(src)) != EOF)
+		fputc(temp, des);
+
+	if (feof(src) == 0)
+	{
+		puts("파일 복사 실패");
+		return -1;
+	}
+	puts("파일 복사 완료");
+
+	// 해제
+	fclose(src);
+	fclose(des);
+	return 0;
+}
 
 
 
 #pragma endregion
 
 
-#pragma region
+#pragma region 바이너리 복사 붙여넣기 예제
+// start
+// #include "header.h"
+#include <stdio.h>
+
+int main()
+{
+	/*
+
+	*/
+	// 선언
+	FILE* src, * des;
+
+	errno_t src_err, des_err;
+	src_err = fopen_s(&src, "C:\\cTest\\src.jpg", "rb");
+	des_err = fopen_s(&des, "C:\\cTest\\des.jpg", "wb");
+	// 예외
+	if (src_err != 0 || des_err != 0)
+	{
+		puts("파일 오픈 실패!!");
+		return -1;
+	}
+
+	int buf[5];
+	int i;
+	int temp;
+
+	// 사이즈를 어떻게 하지? 리턴값이 count보다 작게 나오는 값을 조건으로 사용
+	// -> 이렇게 하니까 크기가 딱 맞지 않음
+	// 1바이트로 해야하나? -> 크기는 맞으나.. 화면 출력에 20이 아닌 1로 가득 참
+	// feof를 사용해서 break를 사용하게 되는데 -> 이렇게 하지 않아도 가능함
+
+	/*
+	피드백
+	1. 20씩 읽고 20씩 넣기때문에 마지막 16씩 읽어야했을 때 20씩 넣었음
+	이걸 temp의 크기로 바꿔줌 !
+	2. 조건문 설정하기가 어려웠는데 fread의 리턴값을 이용해서 조건문을 설정해줌
+	3. 뭔가 사이즈와 개수가 패키지와 낱개 개념인 것 같음
+	*/
+	// fread(버퍼, 패키지크기, 개수, src) -> 이런식으로 !
+	while ((temp = fread((int*)buf, sizeof(char), sizeof(buf), src)) > 0)
+		fwrite((int*)buf, sizeof(char), temp, des);
+
+	if (feof(src) == 0)
+	{
+		puts("파일 복사 실패");
+		return -1;
+	}
+	puts("파일 복사 완료");
+
+	fclose(src);
+	fclose(des);
+
+	return 0;
+}
+
+
 
 
 

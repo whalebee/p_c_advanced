@@ -2,129 +2,54 @@
 // #include "header.h"
 #include <stdio.h>
 
-#define LEN 5
-#define SUB_CNT 3.0
-
-typedef struct
-{
-	char name[30];
-	int stuNum;
-	int kor;
-	int eng;
-	int math;
-	int total;
-	double avg;
-	char grade;
-}Student;
-
-void input_data(Student* example);
-void calc_data(Student* example);
-void printf_data(Student* example);
-void sort_data(Student* example);
-
-
 int main()
 {
-	// 배열의 SIZE를 define으로 놓고
-	// 길이는 매개변수로 줄 것
 	/*
-	5명의 학번, 이름, 국어,영어, 수학 점수를 입력받아 정렬 전 데이터 출력 후에
-	정렬 후 데이터 이렇게 2개의 데이터를 출력
 
-	학번, 이름, 과목 점수, 총점, 평균, 학점 구조체 생성
-
-	main함수에서 input_data, calc_data 호출하고 이후 printf_data와
-	sort_data 함수 출력한 뒤 마지막으로 printf_data 함수 호출 ( 비교를 위해 )
-
-	input_data 함수는 5명의 정보(학번, 이름, 점수)를 입력
-	calc_data 함수는 5명의 과목 총점, 평균, 학점 계산
-	(90이상 A, 80이상 B, 70이상 C, 외 F)
-
-	sort_data 함수는 평균 점수로 정렬
-	printf_data 함수는 5명의 정보 출력
 	*/
-	Student example[5] = { 0, };
+	// 선언
+	FILE* src, * des;
 
-	input_data(&example);
-	calc_data(&example);
-	printf("#정렬 전 데이터... \n");
-	printf_data(&example);
-	sort_data(&example);
-	printf("#정렬 후 데이터... \n");
-	printf_data(&example);
+	errno_t src_err, des_err;
+	src_err = fopen_s(&src, "C:\\cTest\\src.jpg", "rb");
+	des_err = fopen_s(&des, "C:\\cTest\\des.jpg", "wb");
+	// 예외
+	if (src_err != 0 || des_err != 0)
+	{
+		puts("파일 오픈 실패!!");
+		return -1;
+	}
+
+	int buf[5];
+	int i;
+	int temp;
+
+	// 사이즈를 어떻게 하지? 리턴값이 count보다 작게 나오는 값을 조건으로 사용
+	// -> 이렇게 하니까 크기가 딱 맞지 않음
+	// 1바이트로 해야하나? -> 크기는 맞으나.. 화면 출력에 20이 아닌 1로 가득 참
+	// feof를 사용해서 break를 사용하게 되는데 -> 이렇게 하지 않아도 가능함
+	
+	/*
+	피드백
+	1. 20씩 읽고 20씩 넣기때문에 마지막 16씩 읽어야했을 때 20씩 넣었음
+	이걸 temp의 크기로 바꿔줌 !
+	2. 조건문 설정하기가 어려웠는데 fread의 리턴값을 이용해서 조건문을 설정해줌
+	3. 뭔가 사이즈와 개수가 패키지와 낱개 개념인 것 같음
+	*/
+
+	while ( ( temp = fread((int*)buf, sizeof(char), sizeof(buf), src) ) > sizeof(char) )
+		fwrite((int*)buf, sizeof(char), temp, des);
+
+	if (feof(src) == 0)
+	{
+		puts("파일 복사 실패");
+		return -1;
+	}
+	puts("파일 복사 완료");
+
+	fclose(src);
+	fclose(des);
 
 	return 0;
 }
 
-void input_data(Student* example)
-{
-	int i;
-	for (i = 0; i < LEN; i++)
-	{
-		printf("학번 : "); scanf_s("%d", &example[i].stuNum);
-		printf("이름 : "); scanf_s("%s", example[i].name, (unsigned char)sizeof(example->name));
-		printf("국어, 영어, 수학 점수 : "); scanf_s("%d %d %d", &example[i].kor, &example[i].eng, &example[i].math);
-	}
-}
-
-// 총점, 평균, 학점 계산
-void calc_data(Student* example)
-{
-	int i;
-	for (i = 0; i < LEN; i++)
-	{
-		example[i].total = example[i].kor + example[i].eng + example[i].math;
-		// printf("총점확인: %d \n", example[i].total);
-		example[i].avg = example[i].total / SUB_CNT;
-		if (example[i].avg >= 90)	example[i].grade = 'A';
-		else if (example[i].avg >= 80)	example[i].grade = 'B';
-		else if (example[i].avg >= 70)	example[i].grade = 'C';
-		else 							example[i].grade = 'F';
-		// printf("학점 확인 : %c \n", example[i].grade); 
-	}
-}
-
-void printf_data(Student* example)
-{
-	int i;
-	for (i = 0; i < LEN; i++)
-		printf("%10d %10s %5d %5d %5d %5d %.1f %5c \n", example[i].stuNum, example[i].name, example[i].kor, example[i].eng, example[i].math, example[i].total, example[i].avg, example[i].grade);
-}
-
-// 내림차순이여
-void sort_data(Student* example)
-{
-	Student temp;
-	int i, j, max = 0;
-	for (i = 0; i < LEN; i++)
-	{
-		// 해야할 때와 안 해야할 때를 가려서?
-		max = i;
-		for (j = i; j < LEN; j++)
-			if (example[max].avg < example[j].avg) max = j;
-
-
-		temp = example[max];
-		example[max] = example[i];
-		example[i] = temp;
-
-		
-		/*
-		3 5 1 4
-		1이라는 인덱스 값이 가장 크다는 것을 찾음
-		그걸 마지막에 넣어야함
-
-		왜 처음만 바뀌징
-		첫번째에 max인덱스를 사용하여 스왑을 해주었기 때문에
-		처음부터 비교하는 j는 무조건 가장 큰 첫번째 값을 max에 넣어줄 수 밖에 없으니까.
-
-		*/
-
-	}
-}
-// 순서 앞당기기
-// printf("i의 %f\n", example[j].avg);
-// printf("i+1의 %f\n", example[j + 1].avg);
-
-// 스왑은 마지막에만 한 번 을 하는 것이고,
-// 반복문 안에서는 제일 큰 값의 인덱스를 찾는다
