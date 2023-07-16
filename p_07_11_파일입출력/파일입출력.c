@@ -22,7 +22,6 @@ int main()
 	}
 
 	int buf[5];
-	int i;
 	int temp;
 
 	// 사이즈를 어떻게 하지? 리턴값이 count보다 작게 나오는 값을 조건으로 사용
