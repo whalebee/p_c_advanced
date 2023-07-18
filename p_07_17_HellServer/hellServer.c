@@ -14,6 +14,12 @@ int main(int argc, char* argv[])
 	int szClntAddr;
 	char message[] = "Hell World!";
 
+	// argment count 인자의 개수가 2개인 것을 세는 것
+	// HellServer.exe 111
+	// HellServer.exe -> 1개, 111 -> 2개
+	// argv[0] -> HellServer.exe
+	// argv[1] -> 111
+	// 이런식으로 된다 ! 서버라면 argv[2]가 port
 	if (argc != 2) {
 		printf("Usage : %s <port> \n", argv[0]);
 		exit(1);
