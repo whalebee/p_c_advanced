@@ -12,12 +12,14 @@ int main(int argc, char* argv[])
 	SOCKET hSocket;
 	SOCKADDR_IN servAddr;
 
-	char message[30];
 	int strLen;
 
 	// new
-	int oper_arr[5];
+	// 카운트를 굳이 4바이트?
+	// 자료형이 안 맞는 건? -> 아니 구조체말고 뭐지
+
 	int recv_tot, recv_len, str_len;
+	int i;
 
 	// argment count 인자의 개수가 3개인 것을 세는 것
 	// HellServer.exe 111
@@ -46,22 +48,64 @@ int main(int argc, char* argv[])
 	else
 		printf("Connected....................\n");
 
+	char count;
+	char arr[100];
 	while (1)
 	{
 		fputs("Operand count: ", stdout);
-		fgets(oper_arr[0], sizeof(int), stdin);
+		scanf_s("%c", &count, (unsigned int)sizeof(char));
+		// fgets(, sizeof(int), stdin);
 
-		str_len = send(hSocket, oper_arr[0], sizeof(int), 0);
+		// 일단 보내기전에 저장부터 해보자, 상수!!부터 변수로까지
+		arr[0] = count;
 
-		recv_tot = 0;
-		while (recv_tot < str_len)
+		
+		
+
+		for (i = 1; i < 100; i++)
 		{
-			recv_len = recv(hSocket, oper_arr[0], sizeof(int), 0); // -1 ?
-			if (recv_len == -1) errorHandling("recv() error");
-			recv_tot += recv_len;
+			printf("Operand %d :", i);
+			scanf_s("%c", &arr[i], (unsigned int)sizeof(char));
+			printf("%c ", &arr[i]);
 		}
 
-		printf("Message From server : %d \n", oper_arr[0]);
+
+
+		// str_len = send(hSocket, &oper_arr[0], sizeof(int), 0);
+		// if (str_len == -1) errorHandling("send() error");
+
+		/*for (i = 1; i < 4; i++)
+		{
+			printf("Operand %d: \n", i);
+			fgets(&oper_arr[i], sizeof(int), stdin);
+		}
+			
+		fputs("Operator: ", stdout);
+		fgets(&oper_arr[4], sizeof(int), stdin);*/
+
+		
+		
+		// send
+		/*for (i = 1; i < 5; i++)
+		{
+			printf("보냅니다. \n");
+			str_len = send(hSocket, &oper_arr[i], sizeof(int), 0);
+			if (str_len == -1) errorHandling("send() error");
+			printf("받습니다. \n");
+			printf("배열: %d \n", oper_arr[i]);
+			recv(hSocket, &oper_arr[0], sizeof(int), 0);
+		}*/
+
+
+		//recv_tot = 0;
+		//while (recv_tot < str_len)
+		//{
+		//	recv_len = recv(hSocket, &oper_arr[0], sizeof(int), 0); // -1 ?
+		//	if (recv_len == -1) errorHandling("recv() error");
+		//	recv_tot += recv_len;
+		//}
+
+		// printf("Message From server : %d \n", oper_arr[0]);
 	}
 
 	closesocket(hSocket);

@@ -1,45 +1,42 @@
 // start
 // #include "header.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+
 
 int main()
 {
 	/*
-	이 상태에서 파일의 이미지를 복사 붙여넣기 해보시오 !
+
 	*/
-	// 선언
-	FILE* src, * des;
-	errno_t src_err, des_err;
-	src_err = fopen_s(&src, "C:\\cTest\\src.jpg", "rb");
-	des_err = fopen_s(&des, "C:\\cTest\\des.jpg", "wb");
-
-	// 예외
-	if (src_err != 0 || des_err != 0)
-	{
-		puts("파일 오픈 실패!!");
-		return -1;
-	}
-
-	int buf[5];
 	int i;
-	int temp;
-
-	while ( ( temp = fread((char*)buf, sizeof(char), sizeof(buf), src) ) != '\0' )
+	char count = 0;
+	char arr[100];
+	while (1)
 	{
-		fwrite((char*)buf, sizeof(char), temp, des);
-	}
+		fputs("Operand count: ", stdout);
+		gets(&arr[0], sizeof(char), stdin);
+
+		// 일단 보내기전에 저장부터 해보자, 상수!!부터 변수로까지
+		// arr[0] = count;
+	
+
+		for (i = 0; i < 3; i++)
+		{
+			printf("Operand %d :", i + 1);
+			// gets(&arr[i+1], sizeof(char), stdin);
+
+			scanf_s("%c", &arr[i+1], (unsigned int)sizeof(char));
+			getchar();
+			printf("%c ", arr[i]);
+		}
 		
 
-	if (feof(src) == 0)
-	{
-		puts("파일 복사 실패");
-		return -1;
+		break;
 	}
-	puts("파일 복사 완료");
 
-
-	fclose(src);
-	fclose(des);
 
 	return 0;
 }

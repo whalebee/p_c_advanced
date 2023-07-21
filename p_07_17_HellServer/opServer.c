@@ -16,8 +16,8 @@ int main(int argc, char* argv[])
 
 
 	// new
-	int i;
-	int oper_arr[5];
+	int i, j;
+	int oper;
 	SSIZE_T str_len;
 
 	// argment count 인자의 개수가 2개인 것을 세는 것
@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
 	if (listen(hServSock, 5) == SOCKET_ERROR)
 		errorHandling("listen() error");
 
-
+	// int count = 0;
 	for (i = 0; i < 5; i++)
 	{
 	szClntAddr = sizeof(clntAddr);
@@ -58,8 +58,18 @@ int main(int argc, char* argv[])
 
 	if (hClntSock == INVALID_SOCKET) errorHandling("accept() error");
 
-	while ((str_len = recv(hClntSock, oper_arr[0], sizeof(int), 0) != 0))
-		send(hClntSock, oper_arr[0], sizeof(int), 0);
+	//// count
+	//while(recv(hClntSock, count, sizeof(int), 0) == 0)
+	//	printf("count: %d", count);
+
+	//// parameter
+	//for(j = 0; j < count; j++)
+	//{
+	//	str_len = recv(hClntSock, &oper_arr[j], sizeof(int), 0);
+	//	send(hClntSock, oper_arr[j], str_len, 0);
+	//}
+	
+	// calculator
 	
 
 	closesocket(hClntSock);
