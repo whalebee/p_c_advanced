@@ -28,7 +28,7 @@ int main()
 			printf("Operand %d :", i + 1);
 			// gets(&arr[i+1], sizeof(char), stdin);
 
-			scanf_s("%c", &arr[i+1], (unsigned int)sizeof(char));
+			scanf_s("%d", (int*) & arr[i*4 + 1], (unsigned int)sizeof(char));
 			getchar();
 			printf("%c ", arr[i]);
 		}
