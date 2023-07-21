@@ -14,6 +14,12 @@ int main(int argc, char* argv[])
 	int szClntAddr;
 	char message[] = "Hell World!";
 
+
+	// new
+	int i;
+	int oper_arr[5];
+	SSIZE_T str_len;
+
 	// argment count 인자의 개수가 2개인 것을 세는 것
 	// HellServer.exe 111
 	// HellServer.exe -> 1개, 111 -> 2개
@@ -44,14 +50,21 @@ int main(int argc, char* argv[])
 	if (listen(hServSock, 5) == SOCKET_ERROR)
 		errorHandling("listen() error");
 
+
+	for (i = 0; i < 5; i++)
+	{
 	szClntAddr = sizeof(clntAddr);
 	hClntSock = accept(hServSock, (SOCKADDR*)&clntAddr, &szClntAddr);
-	if (hClntSock == INVALID_SOCKET)
-		errorHandling("accept() error");
 
-	send(hClntSock, message, sizeof(message), 0);
+	if (hClntSock == INVALID_SOCKET) errorHandling("accept() error");
+
+	while ((str_len = recv(hClntSock, oper_arr[0], sizeof(int), 0) != 0))
+		send(hClntSock, oper_arr[0], sizeof(int), 0);
+	
 
 	closesocket(hClntSock);
+	}
+
 	closesocket(hServSock);
 	WSACleanup();
 

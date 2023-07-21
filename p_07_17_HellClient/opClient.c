@@ -5,6 +5,7 @@
 
 void errorHandling(char* message);
 
+
 int main(int argc, char* argv[])
 {
 	WSADATA wsaData;
@@ -13,6 +14,10 @@ int main(int argc, char* argv[])
 
 	char message[30];
 	int strLen;
+
+	// new
+	int oper_arr[5];
+	int recv_tot, recv_len, str_len;
 
 	// argment count 인자의 개수가 3개인 것을 세는 것
 	// HellServer.exe 111
@@ -38,12 +43,26 @@ int main(int argc, char* argv[])
 
 	if (connect(hSocket, (SOCKADDR*)&servAddr, sizeof(servAddr)) == SOCKET_ERROR)
 		errorHandling("connect() error");
+	else
+		printf("Connected....................\n");
 
-	strLen = recv(hSocket, message, sizeof(message) - 1, 0);
-	if (strLen == -1)
-		errorHandling("read() error");
+	while (1)
+	{
+		fputs("Operand count: ", stdout);
+		fgets(oper_arr[0], sizeof(int), stdin);
 
-	printf("Message From server : %s \n", message);
+		str_len = send(hSocket, oper_arr[0], sizeof(int), 0);
+
+		recv_tot = 0;
+		while (recv_tot < str_len)
+		{
+			recv_len = recv(hSocket, oper_arr[0], sizeof(int), 0); // -1 ?
+			if (recv_len == -1) errorHandling("recv() error");
+			recv_tot += recv_len;
+		}
+
+		printf("Message From server : %d \n", oper_arr[0]);
+	}
 
 	closesocket(hSocket);
 	WSACleanup();
