@@ -1,5 +1,5 @@
 ﻿  opServer.c
-C:\Users\Administrator\source\repos\p_c_advanced\p_07_17_HellServer\opServer.c(21,10): warning C4101: 'str_len' :참조되지 않은 지역 변수입니다.
-C:\Users\Administrator\source\repos\p_c_advanced\p_07_17_HellServer\opServer.c(19,9): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
-C:\Users\Administrator\source\repos\p_c_advanced\p_07_17_HellServer\opServer.c(20,6): warning C4101: 'oper' :참조되지 않은 지역 변수입니다.
-  p_07_17_HellServer.vcxproj -> C:\Users\Administrator\source\repos\p_c_advanced\x64\Debug\p_07_17_HellServer.exe
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_17_HellServer\opServer.c(111,31): warning C4133: '함수': 'int *'과(와) 'const char *' 사이의 형식이 호환되지 않습니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_17_HellServer\opServer.c(25,28): warning C4101: 'tmp' :참조되지 않은 지역 변수입니다.
+C:\Users\BOSS\source\repos\p_c_advanced\p_07_17_HellServer\opServer.c(25,17): warning C4101: 'oper' :참조되지 않은 지역 변수입니다.
+  p_07_17_HellServer.vcxproj -> C:\Users\BOSS\source\repos\p_c_advanced\x64\Debug\p_07_17_HellServer.exe

@@ -27,6 +27,9 @@
     <ClCompile Include="임시저장용.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="임시저장용2.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="연습용.h">

@@ -3,6 +3,10 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 
+#define BUF 1024
+#define INT 4
+#define ETC 2
+
 void errorHandling(char* message);
 
 
@@ -15,11 +19,16 @@ int main(int argc, char* argv[])
 	int strLen;
 
 	// new
+	int i, cnt, j, forGetchar;
+	int result = 0;
+	char temp;
+	char arr[BUF];
+
+	// new
 	// 카운트를 굳이 4바이트?
 	// 자료형이 안 맞는 건? -> 아니 구조체말고 뭐지
 
-	int recv_tot, recv_len, str_len;
-	int i;
+	SSIZE_T recv_tot, recv_len, str_len;
 
 	// argment count 인자의 개수가 3개인 것을 세는 것
 	// HellServer.exe 111
@@ -48,64 +57,61 @@ int main(int argc, char* argv[])
 	else
 		printf("Connected....................\n");
 
-	char count;
-	char arr[100];
+
+	int please = 0;
+	
+
 	while (1)
 	{
-		fputs("Operand count: ", stdout);
-		scanf_s("%c", &count, (unsigned int)sizeof(char));
-		// fgets(, sizeof(int), stdin);
+		printf("operand count( input 0 to quit ): ");
+		scanf_s("%c", &temp, (unsigned char)sizeof(char));
+		cnt = atoi(&temp);
 
-		// 일단 보내기전에 저장부터 해보자, 상수!!부터 변수로까지
-		arr[0] = count;
 
-		
-		
+		if (cnt == 0) break;
 
-		for (i = 1; i < 100; i++)
+		arr[0] = temp;
+		j = 1;
+		for (i = 1; i < cnt * INT; i += INT)
 		{
-			printf("Operand %d :", i);
-			scanf_s("%c", &arr[i], (unsigned int)sizeof(char));
-			printf("%c ", &arr[i]);
+			printf("operand %d : ", j++);
+			// fgets((int*)& arr[i + 1], 4, stdin);
+			scanf_s("%d", &please);
+			forGetchar = getchar();
+			arr[i + 0] = please;
+			arr[i + 1] = please >> 8;
+			arr[i + 2] = please >> 16;
+			arr[i + 3] = please >> 24;
 		}
 
 
-
-		// str_len = send(hSocket, &oper_arr[0], sizeof(int), 0);
-		// if (str_len == -1) errorHandling("send() error");
-
-		/*for (i = 1; i < 4; i++)
+		for (i = 1; i < cnt * INT; i += INT)
 		{
-			printf("Operand %d: \n", i);
-			fgets(&oper_arr[i], sizeof(int), stdin);
+			printf("입력한 값들: %d \n", *((int*)(arr + i)));
 		}
-			
-		fputs("Operator: ", stdout);
-		fgets(&oper_arr[4], sizeof(int), stdin);*/
-
-		
-		
-		// send
-		/*for (i = 1; i < 5; i++)
-		{
-			printf("보냅니다. \n");
-			str_len = send(hSocket, &oper_arr[i], sizeof(int), 0);
-			if (str_len == -1) errorHandling("send() error");
-			printf("받습니다. \n");
-			printf("배열: %d \n", oper_arr[i]);
-			recv(hSocket, &oper_arr[0], sizeof(int), 0);
-		}*/
 
 
-		//recv_tot = 0;
-		//while (recv_tot < str_len)
-		//{
-		//	recv_len = recv(hSocket, &oper_arr[0], sizeof(int), 0); // -1 ?
-		//	if (recv_len == -1) errorHandling("recv() error");
-		//	recv_tot += recv_len;
-		//}
+		printf("cnt는 %d \n", cnt);
 
-		// printf("Message From server : %d \n", oper_arr[0]);
+		printf("operator: ");
+		scanf_s("%c", (char*)&arr[cnt * INT + 2], (unsigned char)sizeof(char));
+		forGetchar = getchar();
+		// printf("%c", arr[cnt]);
+
+		// printf("연산자는 : %c \n", arr[cnt* INT]);
+		// printf("보낼 값은 : %c \n", arr[0]);
+
+
+		// 여기 3인거 잘봐 2주면 연산자 짤려 -> 왜? 서버에서 리드를 2번 하니까
+		str_len = send(hSocket, arr, ( sizeof(int) * cnt ) + 3, 0);
+		printf("클라에서 보내는바이트는? %d \n", (int)str_len);
+		if (str_len == -1) errorHandling("send() error");
+
+		recv_len = recv(hSocket, &result, sizeof(int), 0);
+		printf("클라에서 받은바이트는? %d \n", (int)recv_len);
+		if (recv_len == -1) errorHandling("recv() error");
+		printf("Result From server : %d \n", result);
+
 	}
 
 	closesocket(hSocket);
