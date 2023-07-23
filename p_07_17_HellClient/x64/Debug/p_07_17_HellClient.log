@@ -2,4 +2,4 @@
 C:\Users\BOSS\source\repos\p_c_advanced\p_07_17_HellClient\opClient.c(110,28): warning C4133: '함수': 'int *'과(와) 'char *' 사이의 형식이 호환되지 않습니다.
 C:\Users\BOSS\source\repos\p_c_advanced\p_07_17_HellClient\opClient.c(19,6): warning C4101: 'strLen' :참조되지 않은 지역 변수입니다.
 C:\Users\BOSS\source\repos\p_c_advanced\p_07_17_HellClient\opClient.c(31,10): warning C4101: 'recv_tot' :참조되지 않은 지역 변수입니다.
-  p_07_17_HellClient.vcxproj -> C:\Users\BOSS\Source\Repos\p_c_advanced\x64\Debug\p_07_17_HellClient.exe
+  p_07_17_HellClient.vcxproj -> C:\Users\BOSS\source\repos\p_c_advanced\x64\Debug\p_07_17_HellClient.exe

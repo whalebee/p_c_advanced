@@ -146,7 +146,6 @@ int calculator(unsigned char* arr, int cnt, char oper)
 			result += *((int*)(arr + i));
 			// printf("result : %d \n", result);
 		}
-			
 		else if (oper == '-')
 			result -= *((int*)(arr + i));
 		else if (oper == '*')
