@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
 			arr[i + 2] = temp >> 16;
 			arr[i + 3] = temp >> 24;*/
 		}
-
+		
 		// i = 0부터 시작하는게 좋다.
 		for (i = 1; i < count * INT; i += INT)
 			printf("입력된 값들: %d \n", *((int*)(arr + i)));
