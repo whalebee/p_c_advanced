@@ -109,6 +109,7 @@ int main(int argc, char* argv[])
 			result = cal(arr, count, arr[count * INT + 2]);
 			printf("결과값은 : %d \n", result);
 
+			// char* 로 result 넘겨줘
 			sendLen = send(hClntSock, &result, sizeof(result), 0);
 			if (sendLen == SOCKET_ERROR) errorHandling("send() error");
 			printf("전달한 바이트는? %d \n", (int)sendLen);

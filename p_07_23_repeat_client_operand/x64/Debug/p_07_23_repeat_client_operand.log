@@ -1,2 +1,3 @@
 ﻿  client.c
-  p_07_23_repeat_client_operand.vcxproj -> C:\Users\BOSS\source\repos\p_c_advanced\x64\Debug\p_07_23_repeat_client_operand.exe
+C:\Users\Administrator\source\repos\p_c_advanced\p_07_23_repeat_client_operand\client.c(24,6): warning C4101: 'temp' :참조되지 않은 지역 변수입니다.
+  p_07_23_repeat_client_operand.vcxproj -> C:\Users\Administrator\Source\Repos\p_c_advanced\x64\Debug\p_07_23_repeat_client_operand.exe

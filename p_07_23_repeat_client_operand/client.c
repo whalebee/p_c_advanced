@@ -69,25 +69,28 @@ int main(int argc, char* argv[])
 		for (i = 1; i < count * INT; i += INT)
 		{
 			printf("operand %d :", j++);
-			scanf_s("%d", &temp);
+			scanf_s("%d", (int*)&arr[i]);
 			forgetchar = getchar();
+			/*scanf_s("%d", &temp);
 			arr[i + 0] = temp;
 			arr[i + 1] = temp >> 8;
 			arr[i + 2] = temp >> 16;
-			arr[i + 3] = temp >> 24;
+			arr[i + 3] = temp >> 24;*/
 		}
 
-	/*	for (i = 1; i < count * INT; i += INT)
-			printf("입력된 값들: %d \n", *((int*)(arr + i)));*/
+		// i = 0부터 시작하는게 좋다.
+		for (i = 1; i < count * INT; i += INT)
+			printf("입력된 값들: %d \n", *((int*)(arr + i)));
 
+		// arr[i] -> 참조값
+		// (int*) -> 포인터
+		// 결과: *((int*)&(arr[i])) 엉망이네ㅋㅋ
+		
 		// (arr+i) -> 주소값
 		// (int*) -> 포인터
 		// *(  ) -> 참조값
 		// 결과 *((int*)(arr + i))
 
-		// arr[i] -> 참조값
-		// (int*) -> 포인터
-		// 결과: *((int*)&(arr[i])) ㅋㅋㅋ
 
 		// operator
 		printf("operator: ");
