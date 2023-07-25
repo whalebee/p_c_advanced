@@ -1,0 +1,4 @@
+﻿  client.c
+C:\Users\Administrator\source\repos\p_c_advanced\p_07_25_client_socket_binary\client.c(16,7): warning C4101: 'message' :참조되지 않은 지역 변수입니다.
+C:\Users\Administrator\source\repos\p_c_advanced\p_07_25_client_socket_binary\client.c(17,6): warning C4101: 'strLen' :참조되지 않은 지역 변수입니다.
+  p_07_25_client_socket_binary.vcxproj -> C:\Users\Administrator\Source\Repos\p_c_advanced\x64\Debug\p_07_25_client_socket_binary.exe
