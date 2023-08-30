@@ -47,6 +47,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_07_25_client_socket_binar
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "p_07_25_server_socket_binary", "p_07_25_server_socket_binary\p_07_25_server_socket_binary.vcxproj", "{F050AD09-2522-4E0F-9D8D-D2C564E9824E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "codetest1", "codetest1\codetest1.vcxproj", "{3822472B-1AE4-417D-9EDD-8205AB7FA1BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -231,6 +233,14 @@ Global
 		{F050AD09-2522-4E0F-9D8D-D2C564E9824E}.Release|x64.Build.0 = Release|x64
 		{F050AD09-2522-4E0F-9D8D-D2C564E9824E}.Release|x86.ActiveCfg = Release|Win32
 		{F050AD09-2522-4E0F-9D8D-D2C564E9824E}.Release|x86.Build.0 = Release|Win32
+		{3822472B-1AE4-417D-9EDD-8205AB7FA1BD}.Debug|x64.ActiveCfg = Debug|x64
+		{3822472B-1AE4-417D-9EDD-8205AB7FA1BD}.Debug|x64.Build.0 = Debug|x64
+		{3822472B-1AE4-417D-9EDD-8205AB7FA1BD}.Debug|x86.ActiveCfg = Debug|Win32
+		{3822472B-1AE4-417D-9EDD-8205AB7FA1BD}.Debug|x86.Build.0 = Debug|Win32
+		{3822472B-1AE4-417D-9EDD-8205AB7FA1BD}.Release|x64.ActiveCfg = Release|x64
+		{3822472B-1AE4-417D-9EDD-8205AB7FA1BD}.Release|x64.Build.0 = Release|x64
+		{3822472B-1AE4-417D-9EDD-8205AB7FA1BD}.Release|x86.ActiveCfg = Release|Win32
+		{3822472B-1AE4-417D-9EDD-8205AB7FA1BD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
